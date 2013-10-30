@@ -1,4 +1,4 @@
-window.StartupNews =
+window.Listabeta =
 
   Common:
     init: ->
@@ -16,4 +16,4 @@ window.StartupNews =
         $('.flash').slideUp()
 
 jQuery ->
-  StartupNews.Common.init()
+  Listabeta.Common.init()
