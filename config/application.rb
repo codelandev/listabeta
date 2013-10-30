@@ -30,5 +30,12 @@ module Listabeta
     config.i18n.available_locales = %i(pt-BR)
     config.i18n.default_locale = :"pt-BR"
     config.i18n.locale = :"pt-BR"
+
+    config.generators do |g|
+      g.template_engine :slim
+      g.javascripts false
+      g.stylesheets false
+      g.helper false
+    end
   end
 end
