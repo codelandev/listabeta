@@ -49,10 +49,16 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development, :test do
+  gem 'pry-rails', '~> 0.3.2'
+end
+
 group :test do
   gem 'rspec-rails', '~> 2.0'
-  gem 'pry-rails', '~> 0.3.2'
   gem 'machinist', '~> 2.0'
+  gem 'database_cleaner', '~> 1.1.1'
+  gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'simplecov', require: false
 end
 
 # Use ActiveModel has_secure_password
