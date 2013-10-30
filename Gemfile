@@ -7,6 +7,9 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'rails-i18n', '~> 4.0.0'
 
+# Server
+gem 'thin', '~> 1.6.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
