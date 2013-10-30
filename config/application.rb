@@ -39,6 +39,7 @@ module Listabeta
       g.test_framework :rspec,
         :view_specs => false,
         :helper_specs => false
+      g.fixture_replacement :machinist
     end
   end
 end

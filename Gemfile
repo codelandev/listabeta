@@ -52,6 +52,7 @@ end
 group :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'pry-rails', '~> 0.3.2'
+  gem 'machinist', '~> 2.0'
 end
 
 # Use ActiveModel has_secure_password
