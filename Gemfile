@@ -37,6 +37,14 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # Devise translations
 gem 'devise-i18n'
 
+# Enumerate_it
+gem 'enumerate_it'
+
+# For avatar uploading
+gem 'carrierwave', '~> 0.9.0'
+gem 'fog', '~> 1.15.0'
+gem 'mini_magick', '~> 3.6.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

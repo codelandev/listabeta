@@ -1,0 +1,30 @@
+pt-BR:
+  activerecord:
+    models:
+      startup:
+        one: Startup
+        other: Startups
+
+    attributes:
+      startup:
+        name: Nome da Startup
+        city: Cidade
+        email: Email do responsável
+        pitch: Pitch
+        state: Estado
+        status: 'Status (beta privado, beta publico)'
+        website: URL do site
+        twitter: Twitter URL
+        markets: Tipos de mercado (separados por vírgula)
+        password: Senha
+        screenshot: Website screenshot
+        description: Descrição
+        current_password: Senha atual
+        password_confirmation: Confirmar senha
+
+  enumerations:
+    status:
+      in_development: Em desenvolvimento
+      private_beta: Beta privado
+      public_beta: Beta público
+      online: No ar
