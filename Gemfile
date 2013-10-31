@@ -11,7 +11,7 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'thin', '~> 1.6.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.16.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -30,6 +30,9 @@ gem 'bootstrap-sass-rails', '~> 3.0.0.3'
 
 # Simple form for form wrappers
 gem 'simple_form'
+
+# ActiveAdmin for admin management
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
