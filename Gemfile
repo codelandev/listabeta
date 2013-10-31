@@ -34,6 +34,9 @@ gem 'simple_form'
 # ActiveAdmin for admin management
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+# Devise translations
+gem 'devise-i18n'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
