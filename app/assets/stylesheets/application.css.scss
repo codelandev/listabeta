@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, h6{ font-weight: 200; color: #333 }
   margin: 24px auto;
   line-height: 20px;
   line-height: 26px;
+  margin-top: 14px;
 }
 
 .explanation-text{
@@ -67,6 +68,10 @@ body{
   padding: 22px 44px;
 }
 
+.default-btn:active{
+  color: white;
+}
+
 .fade {
   opacity: 1;
   transition: background .25s ease-in-out;
@@ -76,6 +81,10 @@ body{
 
 .fade:hover {
   background-color: #58b8ee;
+  color: white;
+}
+
+.fade:active{
   color: white;
 }
 
@@ -107,4 +116,8 @@ body{
     height: 180px;
     padding: 8px;
   }
+}
+
+.help-inline{
+  color: red;
 }
