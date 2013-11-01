@@ -1,36 +1,35 @@
-.well.col-md-6.col-md-offset-3.register
-
+.well.col-md-6.col-md-offset-3
   h1.text-center Cadastro de Startup
   br/
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
+    .register
+      = f.error_notification
 
-    = f.error_notification
-
-    .form-group
-      = f.input :email, :required => true, class: 'form-control'
-    .form-group
-      = f.input :name, :required => true, class: 'form-control'
-    .form-group
-      = f.input :website, :required => true, class: 'form-control', hint: 'Ex: http://www.seusite.com.br'
-    .form-group
-      = f.input :screenshot, :required => true, class: 'form-control', hint: 'Escolha uma screenshot de seu website'
-    .form-group
-      = f.input :pitch, :required => true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
-    .form-group
-      = f.input :description, :required => true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
-    .form-group
-      = f.select :status, Status.to_a, :required => true, class: 'form-control'
-    .form-group
-      = f.input :state, :required => true, class: 'form-control'
-    .form-group
-      = f.input :city, :required => true, class: 'form-control'
-    .form-group
-      = f.input :markets, :required => true, class: 'form-control', hint: 'Ex: Programadores, Designers, Empreendedores'
-    hr
-    .form-group
-      = f.input :password, :required => true, class: 'form-control'
-    .form-group
-      = f.input :password_confirmation, :required => true, class: 'form-control'
+      .form-group
+        = f.input :email, :required => true, class: 'form-control'
+      .form-group
+        = f.input :name, :required => true, class: 'form-control'
+      .form-group
+        = f.input :website, :required => true, class: 'form-control', hint: 'Ex: http://www.seusite.com.br'
+      .form-group
+        = f.input :screenshot, :required => true, class: 'form-control', hint: 'Escolha uma screenshot de seu website'
+      .form-group
+        = f.input :pitch, :required => true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
+      .form-group
+        = f.input :description, :required => true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
+      .form-group
+        = f.select :status, Status.to_a, :required => true, class: 'form-control'
+      .form-group
+        = f.input :state, :required => true, class: 'form-control'
+      .form-group
+        = f.input :city, :required => true, class: 'form-control'
+      .form-group
+        = f.input :markets, :required => true, class: 'form-control', hint: 'Ex: Programadores, Designers, Empreendedores'
+      hr
+      .form-group
+        = f.input :password, :required => true, class: 'form-control'
+      .form-group
+        = f.input :password_confirmation, :required => true, class: 'form-control'
     .text-center
       = f.button :submit, "Mostrar minha startup ao mundo", class: 'btn default-btn fade'
 
