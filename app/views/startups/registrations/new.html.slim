@@ -1,22 +1,39 @@
-h2 Registrar-se
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :screenshot, :required => true
-    = f.input :email, :required => true
-    = f.input :name, :required => true
-    = f.input :website, :required => true
-    = f.input :pitch, :required => true
-    = f.input :description, :required => true
-    = f.select :status, Status.to_a, :required => true
-    = f.input :state, :required => true
-    = f.input :city, :required => true
-    = f.input :markets, :required => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
-  .form-actions
-    = f.button :submit, "Registrar-se"
-= render "startups/shared/links"
+.well.col-md-6.col-md-offset-3
+
+  h1.text-center Registrar-se
+
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
+
+    = f.error_notification
+
+    .form-group
+      = f.input :screenshot, :required => true, class: 'form-control'
+    .form-group
+      = f.input :email, :required => true, class: 'form-control'
+    .form-group
+      = f.input :name, :required => true, class: 'form-control'
+    .form-group
+      = f.input :website, :required => true, class: 'form-control'
+    .form-group
+      = f.input :pitch, :required => true, class: 'form-control'
+    .form-group
+      = f.input :description, :required => true, class: 'form-control'
+    .form-group
+      = f.select :status, Status.to_a, :required => true, class: 'form-control'
+    .form-group
+      = f.input :state, :required => true, class: 'form-control'
+    .form-group
+      = f.input :city, :required => true, class: 'form-control'
+    .form-group
+      = f.input :markets, :required => true, class: 'form-control'
+    .form-group
+      = f.input :password, :required => true, class: 'form-control'
+    .form-group
+      = f.input :password_confirmation, :required => true, class: 'form-control'
+    .text-center
+      = f.button :submit, "Registrar-se", class: 'btn btn-success btn-lg'
+
+  = render "startups/shared/links"
 
 javascript:
   $(function() {
