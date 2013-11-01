@@ -1,0 +1,19 @@
+.container
+  .logo
+    .text-center
+      = image_tag 'http://www.v3.co.uk/IMG/106/255106/google-logo--370x229.jpg?1365426001'
+  .how-it-works
+
+.full-color-background
+  .container
+    .text-center
+      h2 Apresente sua Startup no Lista Beta
+      p.sub-header Construir um produto relevante e atingir seu público pode ser uma tarefa muito difícil. A Lista Beta lhe ajuda a divulgar sua startup e a atrair early adopters que irão fornecer o feedback que você precisa.
+      = link_to root_path do
+        button.default-btn.default-btn-big.fade Mostre sua startup ao mundo
+.newsletter
+  .container
+    .text-center
+      h2 Não perca a próxima grande startup
+      p.sub-header Receba em seu e-mail as últimas startups brasileiras.
+      = render partial: 'layouts/mailchimp'
