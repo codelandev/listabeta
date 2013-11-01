@@ -11,17 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-=======
 ActiveRecord::Schema.define(version: 20131031182043) do
->>>>>>> e2cce688dfe295aff4feac3d5d2e6492791e4fbc
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -83,5 +77,4 @@ ActiveRecord::Schema.define(version: 20131031182043) do
   add_index "startups", ["email"], name: "index_startups_on_email", unique: true, using: :btree
   add_index "startups", ["reset_password_token"], name: "index_startups_on_reset_password_token", unique: true, using: :btree
 
->>>>>>> e2cce688dfe295aff4feac3d5d2e6492791e4fbc
 end
