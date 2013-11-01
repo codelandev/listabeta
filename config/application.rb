@@ -41,5 +41,8 @@ module Listabeta
         :helper_specs => false
       g.fixture_replacement :machinist
     end
+
+    # Autoload paths for enumerations
+    config.autoload_paths << "#{Rails.root}/app/enumerations"
   end
 end
