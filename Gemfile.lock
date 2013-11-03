@@ -96,6 +96,7 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    google-analytics-rails (0.0.4)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -255,6 +256,7 @@ DEPENDENCIES
   devise-i18n
   enumerate_it
   fog (~> 1.15.0)
+  google-analytics-rails (~> 0.0.4)
   jbuilder (~> 1.2)
   jquery-rails
   machinist (~> 2.0)

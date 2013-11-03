@@ -45,6 +45,9 @@ gem 'carrierwave', '~> 0.9.0'
 gem 'fog', '~> 1.15.0'
 gem 'mini_magick', '~> 3.6.0'
 
+# Google Analytics
+gem 'google-analytics-rails', '~> 0.0.4'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -77,4 +77,7 @@ Listabeta::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Google analytics tracker code
+  GA.tracker = ENV["GOOGLE_ANALYTICS_TRACKER"]
 end
