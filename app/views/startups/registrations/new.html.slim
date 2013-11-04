@@ -1,6 +1,21 @@
 .well.col-md-6.col-md-offset-3
   h1.text-center Cadastro de Startup
   br/
+  .bullets
+    icon.glyphicon.glyphicon-ok 
+    h4 O produto não pode estar disponível para o público
+  .bullets
+    icon.glyphicon.glyphicon-ok 
+    h4 O site deve ter um design próprio e ser desenvolvido pela equipe
+  .bullets
+    icon.glyphicon.glyphicon-ok 
+    h4 A startup não pode ter sido publicada anteriormente na Lista Beta
+  .bullets
+    icon.glyphicon.glyphicon-ok 
+    h4 Os visitantes devem ser capazes de se cadastrar na lista de email para serem notificados sobre o lançamento
+  br/
+  br/
+
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
     .register
       = f.error_notification
