@@ -24,4 +24,5 @@ Startup.blueprint do
   city { "Porto Alegre" }
   markets { "Fitness, Food, Startups" }
   password { "123123123" }
+  highlighted { false }
 end

@@ -11,4 +11,15 @@ class Startup < ActiveRecord::Base
   validates :email, :name, :website, :pitch, :description, :screenshot, :status, :state, :city, :markets,
             presence: true
   validates :website, url: true
+
+  scope :highlighteds, -> { where(highlighted: true) }
+  scope :unhighlighteds, -> { where(highlighted: false) }
+
+  def highlight!
+    update_column(:highlighted, true) and save
+  end
+
+  def unhighlight!
+    update_column(:highlighted, false) and save
+  end
 end
