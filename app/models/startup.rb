@@ -14,6 +14,8 @@ class Startup < ActiveRecord::Base
 
   scope :highlighteds, -> { where(highlighted: true) }
   scope :unhighlighteds, -> { where(highlighted: false) }
+  scope :approvateds, -> { where(approved: true) }
+  scope :unapprovateds, -> { where(approved: false) }
 
   def highlight!
     update_column(:highlighted, true) and save
@@ -21,5 +23,14 @@ class Startup < ActiveRecord::Base
 
   def unhighlight!
     update_column(:highlighted, false) and save
+  end
+
+  def approve!
+    update_column(:approved, true) and save
+    StartupMailer.notify_approvation(self).deliver
+  end
+
+  def unapprove!
+    update_column(:approved, false) and save
   end
 end
