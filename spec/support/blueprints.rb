@@ -25,4 +25,5 @@ Startup.blueprint do
   markets { "Fitness, Food, Startups" }
   password { "123123123" }
   highlighted { false }
+  approved { false }
 end
