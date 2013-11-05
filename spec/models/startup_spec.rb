@@ -62,39 +62,114 @@ describe Startup do
         expect(Startup.unhighlighteds).to_not include(@startup_3)
       end
     end
+
+    context "#approved" do    
+      before do
+        @startup_1 = Startup.make!(approved: true)
+        @startup_2 = Startup.make!(approved: true)
+        @startup_3 = Startup.make!
+      end
+
+      it "return only the approved startups" do
+        expect(Startup.approvateds).to include(@startup_1)
+        expect(Startup.approvateds).to include(@startup_2)
+      end
+
+      it "doesn't include startups which are not approvateds" do
+        expect(Startup.approvateds).to_not include(@startup_3)
+      end
+    end
+
+    context "#unapproved" do    
+      before do
+        @startup_1 = Startup.make!
+        @startup_2 = Startup.make!
+        @startup_3 = Startup.make!(approved: true)
+      end
+
+      it "return only the unhighlighted startups" do
+        expect(Startup.unapprovateds).to include(@startup_1)
+        expect(Startup.unapprovateds).to include(@startup_2)
+      end
+
+      it "doesn't include startups which are approvateds" do
+        expect(Startup.unapprovateds).to_not include(@startup_3)
+      end
+    end
   end
 
-  describe "#highlight!" do
-    before do
-      @startup_unhighlight ||= Startup.make!
-      @startup_highlight ||= Startup.make!(highlighted: true)
+  describe "Methods" do
+    context "#highlight!" do
+      before do
+        @startup_unhighlight ||= Startup.make!
+        @startup_highlight   ||= Startup.make!(highlighted: true)
+      end
+
+      it "set when is unhighlighted" do
+        @startup_unhighlight.highlight!
+        expect(@startup_unhighlight.highlighted).to be_true
+      end
+
+      it "do nothing when already highlighted" do
+        @startup_highlight.highlight!
+        expect(@startup_highlight.highlighted).to be_true
+      end
     end
 
-    it "set when is unhighlighted" do
-      @startup_unhighlight.highlight!
-      expect(@startup_unhighlight.highlighted).to be_true
+    context "#unhighlight!" do
+      before do
+        @startup_unhighlight ||= Startup.make!
+        @startup_highlight   ||= Startup.make!(highlighted: true)
+      end
+
+      it "set when is highlighted" do
+        @startup_highlight.unhighlight!
+        expect(@startup_highlight.highlighted).to be_false
+      end
+
+      it "do nothing when already unhighlighted" do
+        @startup_highlight.unhighlight!
+        expect(@startup_highlight.highlighted).to be_false
+      end
     end
 
-    it "do nothing when already highlighted" do
-      @startup_highlight.highlight!
-      expect(@startup_highlight.highlighted).to be_true
-    end
-  end
+    context "#approve!" do
+      before do
+        @startup_unapproved ||= Startup.make!
+        @startup_approved   ||= Startup.make!(approved: true)
+      end
 
-  describe "#unhighlight!" do
-    before do
-      @startup_unhighlight ||= Startup.make!
-      @startup_highlight ||= Startup.make!(highlighted: true)
+      it "set when is unapproved" do
+        @startup_unapproved.approve!
+        expect(@startup_unapproved.approved).to be_true
+      end
+
+      it "do nothing when already approved" do
+        @startup_approved.approve!
+        expect(@startup_approved.approved).to be_true
+      end
+      
+      it "send mail after approve!" do
+        @startup_unapproved.approve!
+        ActionMailer::Base.deliveries.last.to.should == [@startup_unapproved.email]
+      end
     end
 
-    it "set when is highlighted" do
-      @startup_highlight.unhighlight!
-      expect(@startup_highlight.highlighted).to be_false
-    end
+    context "#unapprove!" do
+      before do
+        @startup_unapproved ||= Startup.make!
+        @startup_approved   ||= Startup.make!(approved: true)
+      end
 
-    it "do nothing when already unhighlighted" do
-      @startup_highlight.unhighlight!
-      expect(@startup_highlight.highlighted).to be_false
+      it "set when is approved" do
+        @startup_approved.unapprove!
+        expect(@startup_approved.approved).to be_false
+      end
+
+      it "do nothing when already unapproved" do
+        @startup_approved.unapprove!
+        expect(@startup_approved.approved).to be_false
+      end
     end
   end
 end
