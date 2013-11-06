@@ -22,7 +22,7 @@ Startup.blueprint do
   screenshot { File.open(Rails.root.join('spec', 'fixtures', 'photo.png')) }
   state { "Rio Grande do Sul" }
   city { "Porto Alegre" }
-  markets { "Fitness, Food, Startups" }
+  market_list { "Fitness, Food, Startups" }
   password { "123123123" }
   highlighted { false }
   approved { false }
