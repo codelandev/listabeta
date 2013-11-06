@@ -9,6 +9,10 @@
 .full-color-background
   .container
     .text-center
+      
+      - Startup.tag_counts_on(:markets).each do |f|
+        span.label.label-warning.market-tag = f
+
       h2 Apresente sua Startup no Lista Beta
       p.sub-header Construir um produto relevante e atingir seu público pode ser uma tarefa muito difícil. A Lista Beta lhe ajuda a divulgar sua startup e a atrair early adopters que irão fornecer o feedback que você precisa.
       = link_to new_startup_registration_path do

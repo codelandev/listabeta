@@ -4,11 +4,14 @@ class Startup < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_ordered_taggable
+  acts_as_ordered_taggable_on :markets
+
   has_enumeration_for :status, create_helpers: true
 
   mount_uploader :screenshot, ScreenshotUploader
 
-  validates :email, :name, :website, :pitch, :description, :screenshot, :status, :state, :city, :markets,
+  validates :email, :name, :website, :pitch, :description, :screenshot, :status, :state, :city, :market_list,
             presence: true
   validates :website, url: true
 

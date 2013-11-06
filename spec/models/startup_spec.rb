@@ -11,7 +11,7 @@ describe Startup do
     it { should validate_presence_of :status }
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
-    it { should validate_presence_of :markets }
+    it { should validate_presence_of :market_list }
   end
 
   describe "URL validation" do
