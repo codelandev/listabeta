@@ -15,15 +15,21 @@
 .full-color-background
   .container
     .text-center
-      
       - Startup.tag_counts_on(:markets).each do |f|
-        span.label.label-warning.market-tag = f
+        span.label.label-warning.market-tag = "#{f.name} (#{f.count})"
 
       h2 Apresente sua Startup no Lista Beta
       p.sub-header Construir um produto relevante e atingir seu público pode ser uma tarefa muito difícil. A Lista Beta lhe ajuda a divulgar sua startup e a atrair early adopters que irão fornecer o feedback que você precisa.
       = link_to new_startup_registration_path do
         button.default-btn.default-btn-big.fade Mostre sua startup ao mundo*
       p.explanation-text #{"* sua startup só será exibida na data de lançamento (20/11)"}
+
+.container
+  - @highlighteds.each do |startup|
+    = startup.attributes
+  - @unhighlighteds.each do |startup|
+    = startup.attributes
+
 .newsletter
   .container
     .text-center
