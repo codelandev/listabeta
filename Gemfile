@@ -60,6 +60,9 @@ gem 'jbuilder', '~> 1.2'
 # To work with tags, like markets field onside Startup Model
 gem 'acts-as-taggable-on'
 
+# To work with friendly-id on Startups show page
+gem 'friendly_id', '~> 5.0.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
