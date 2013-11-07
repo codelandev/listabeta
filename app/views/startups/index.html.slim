@@ -1,0 +1,6 @@
+.container
+  h1 Confira as últimas Startups lançadas
+  - collection.approvateds.page(params[:page]).per(20).each do |startup|
+    .well
+      = image_tag startup.screenshot, width: '100'
+      = link_to startup.name, startup_path(startup)
