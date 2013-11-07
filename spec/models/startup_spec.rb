@@ -31,14 +31,14 @@ describe Startup do
   describe "Scopes" do
     context "#highlighted" do    
       before do
-        @startup_1 = Startup.make!(highlighted: true)
+        @startup_1 = Startup.make!(highlighted: true, approved: true)
         @startup_2 = Startup.make!(highlighted: true)
-        @startup_3 = Startup.make!
+        @startup_3 = Startup.make!(approved: true)
       end
 
-      it "return only the highlighted startups" do
+      it "return only the highlighted startups that are approved" do
         expect(Startup.highlighteds).to include(@startup_1)
-        expect(Startup.highlighteds).to include(@startup_2)
+        expect(Startup.highlighteds).to_not include(@startup_2)
       end
 
       it "doesn't include startups which are not highlighted" do
@@ -48,9 +48,9 @@ describe Startup do
 
     context "#unhighlighted" do    
       before do
-        @startup_1 = Startup.make!
-        @startup_2 = Startup.make!
-        @startup_3 = Startup.make!(highlighted: true)
+        @startup_1 = Startup.make!(approved: true)
+        @startup_2 = Startup.make!(approved: true)
+        @startup_3 = Startup.make!(highlighted: true, approved: true)
       end
 
       it "return only the unhighlighted startups" do

@@ -15,8 +15,8 @@ class Startup < ActiveRecord::Base
             presence: true
   validates :website, url: true
 
-  scope :highlighteds, -> { where(highlighted: true) }
-  scope :unhighlighteds, -> { where(highlighted: false) }
+  scope :highlighteds, -> { where(highlighted: true, approved: true) }
+  scope :unhighlighteds, -> { where(highlighted: false, approved: true) }
   scope :approvateds, -> { where(approved: true) }
   scope :unapprovateds, -> { where(approved: false) }
 

@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @highlighteds = Startup.highlighteds
+    @unhighlighteds = Startup.unhighlighteds
   end
 
   def markets
