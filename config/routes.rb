@@ -1,12 +1,16 @@
 Listabeta::Application.routes.draw do
-  root 'pages#home'
   devise_for :startups, controllers: { registrations: "startups/registrations" }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  get 'mercados/(:tag)' => 'pages#markets', as: :markets
+  root 'pages#home'
   
-  resources :startups
+  get 'mercados/(:tag)' => 'pages#markets', as: :markets
+
+  resources :startups do
+    resources :questionnaires, only: [:index, :new, :create, :show]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
