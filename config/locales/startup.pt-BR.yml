@@ -12,7 +12,7 @@ pt-BR:
         email: Email do responsável
         pitch: Pitch
         state: Estado
-        status: 'Status (beta privado, beta publico)'
+        status: Status
         website: URL do site
         twitter: Twitter URL
         markets: Tipos de mercado (separados por vírgula)

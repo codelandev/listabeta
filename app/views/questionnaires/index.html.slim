@@ -1,0 +1,14 @@
+.container
+  .well.col-md-6.col-md-offset-3
+    h1 Meus Feedbacks
+
+    br
+    .register
+      .form-group
+        p Compartilhe este link com seus Early Adopters
+        = text_field_tag nil, new_startup_questionnaire_url(Startup.first), class: 'form-control'
+
+    - @my_questionnaires.each do |questionnaire|
+      .well
+        = link_to questionnaire.email, startup_questionnaire_path(id: questionnaire.id), target: 'blank'
+

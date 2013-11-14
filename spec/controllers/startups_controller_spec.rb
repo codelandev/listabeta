@@ -10,6 +10,7 @@ describe StartupsController do
 
   describe "GET 'show'" do
     let(:startup) { Startup.make! }
+    
     it "returns http success" do
       get :show, id: startup.to_param
       response.should be_success
