@@ -11,7 +11,7 @@ describe Startup do
     it { should validate_presence_of :status }
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
-    it { should validate_presence_of :markets }
+    it { should validate_presence_of :market_list }
   end
 
   describe "URL validation" do
@@ -29,16 +29,16 @@ describe Startup do
   end
 
   describe "Scopes" do
-    context "#highlighted" do    
+    context "#highlighted" do
       before do
-        @startup_1 = Startup.make!(highlighted: true)
+        @startup_1 = Startup.make!(highlighted: true, approved: true)
         @startup_2 = Startup.make!(highlighted: true)
-        @startup_3 = Startup.make!
+        @startup_3 = Startup.make!(approved: true)
       end
 
-      it "return only the highlighted startups" do
+      it "return only the highlighted startups that are approved" do
         expect(Startup.highlighteds).to include(@startup_1)
-        expect(Startup.highlighteds).to include(@startup_2)
+        expect(Startup.highlighteds).to_not include(@startup_2)
       end
 
       it "doesn't include startups which are not highlighted" do
@@ -46,11 +46,11 @@ describe Startup do
       end
     end
 
-    context "#unhighlighted" do    
+    context "#unhighlighted" do
       before do
-        @startup_1 = Startup.make!
-        @startup_2 = Startup.make!
-        @startup_3 = Startup.make!(highlighted: true)
+        @startup_1 = Startup.make!(approved: true)
+        @startup_2 = Startup.make!(approved: true)
+        @startup_3 = Startup.make!(highlighted: true, approved: true)
       end
 
       it "return only the unhighlighted startups" do
@@ -63,7 +63,7 @@ describe Startup do
       end
     end
 
-    context "#approved" do    
+    context "#approved" do
       before do
         @startup_1 = Startup.make!(approved: true)
         @startup_2 = Startup.make!(approved: true)
@@ -80,7 +80,7 @@ describe Startup do
       end
     end
 
-    context "#unapproved" do    
+    context "#unapproved" do
       before do
         @startup_1 = Startup.make!
         @startup_2 = Startup.make!
@@ -148,7 +148,7 @@ describe Startup do
         @startup_approved.approve!
         expect(@startup_approved.approved).to be_true
       end
-      
+
       it "send mail after approve!" do
         @startup_unapproved.approve!
         ActionMailer::Base.deliveries.last.to.should == [@startup_unapproved.email]

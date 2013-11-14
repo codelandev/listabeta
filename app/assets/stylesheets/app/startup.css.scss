@@ -1,0 +1,38 @@
+.startups{
+  border: 1px solid black;
+  margin: 0 auto;
+  .highlighteds{ 
+    border: 1px solid black;
+    position: relative;
+    .box{
+      border: 1px solid black;
+      margin: 0 auto;
+      .image{
+        border: 1px solid black;
+      }
+      .name{
+        border: 1px solid black;
+      }
+      .pitch{
+        border: 1px solid black;
+      }
+    }
+  }
+  .unhighlighteds{
+    border: 1px solid black;
+    position: relative;
+    .box{
+      border: 1px solid black;
+      margin: 0 auto;
+      .image{
+        border: 1px solid black;
+      }
+      .name{
+        border: 1px solid black;
+      }
+      .pitch{
+        border: 1px solid black;
+      }
+    }
+  }
+}
