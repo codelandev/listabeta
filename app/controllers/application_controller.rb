@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:email, :name, :website, :pitch, :description, 
-                                                 :screenshot, :status, :state, :city, :market_list]
+                                                 :screenshot, :status, :state, :city, :market_list, :code]
 
     devise_parameter_sanitizer.for(:sign_in) << :email
 

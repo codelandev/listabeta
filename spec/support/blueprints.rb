@@ -27,3 +27,14 @@ Startup.blueprint do
   highlighted { false }
   approved { false }
 end
+
+Questionnaire.blueprint do
+  startup { Startup.make! }
+  email { "feedback_#{sn}@test.com" }
+  a1 { "text" }
+  a2 { A2::N }
+  a3 { A3::N }
+  a4 { A4::N }
+  a5 { A5::RANGE1 }
+  opinion { "text" }
+end

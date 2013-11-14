@@ -9,7 +9,8 @@
 .container
   .text-center
     - Startup.tag_counts_on(:markets).each do |f|
-      span.label.label-warning.market-tag = "#{f.name} (#{f.count})"
+      span.label.label-warning.market-tag
+        = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
 
     p.subtitle Novas Startups
   .boxes-area

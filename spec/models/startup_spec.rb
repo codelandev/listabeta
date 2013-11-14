@@ -28,6 +28,10 @@ describe Startup do
     it { should_not allow_value("blank\nline").for(:website) }
   end
 
+  describe "Relations" do
+    it { should have_many :questionnaires }
+  end
+
   describe "Scopes" do
     context "#highlighted" do
       before do

@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Startup.create!([email: "test@test.com",
+                name: "Startup de teste",
+                website: "http://www.startup.com.br",
+                pitch: "Apenas mais um PITCH da startup",
+                description: "Apenas mais uma DESCRIÇÃO da startup",
+                status: Status::IN_DEVELOPMENT,
+                screenshot: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
+                state: "Rio Grande do Sul",
+                city: "Porto Alegre",
+                market_list: "Fitness, Food, Startups",
+                password: "123123123",
+                highlighted: false,
+                approved: false])

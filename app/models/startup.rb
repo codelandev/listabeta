@@ -12,6 +12,8 @@ class Startup < ActiveRecord::Base
 
   has_enumeration_for :status, create_helpers: true
 
+  has_many :questionnaires, dependent: :destroy
+
   mount_uploader :screenshot, ScreenshotUploader
 
   validates :email, :name, :website, :pitch, :description, :screenshot, :status, :state, :city, :market_list,
