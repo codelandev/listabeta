@@ -2,10 +2,12 @@
   .container
     .logo
       = image_tag 'logo-azul.png', alt: 'Lista Beta Logo'
-    .menu-item
-      = link_to "STARTUPS", root_path
-    .menu-item.menu-button
+    = link_to root_path do
+      .menu-item.menu-fade
+        span STARTUPS
+    .menu-button
       = link_to "ENVIE SUA STARTUP", root_path, class: 'btn default-btn fade'
     .pull-right
-      .last-menu-item
-        = link_to "ENTRAR", root_path
+      = link_to root_path do
+        .menu-item.last-menu-item.menu-fade
+          span ENTRAR
