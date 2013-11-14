@@ -1,44 +1,44 @@
 .container
-  h1 = resource.email
+  h1 = @questionnaire.email
   
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.email')
     br
-    = resource.email
+    = @questionnaire.email
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.opinion')
     br
-    = resource.opinion
+    = @questionnaire.opinion
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.a1')
     br
-    = resource.a1
+    = @questionnaire.a1
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.a2')
     br
-    = resource.a2_humanize
+    = @questionnaire.a2_humanize
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.a3')
     br
-    = resource.a3_humanize
+    = @questionnaire.a3_humanize
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.a4')
     br
-    = resource.a4_humanize
+    = @questionnaire.a4_humanize
 
   br
   div
     span.label.label-warning = t('activerecord.attributes.questionnaire.a5')
     br
-    = resource.a5_humanize
+    = @questionnaire.a5_humanize
