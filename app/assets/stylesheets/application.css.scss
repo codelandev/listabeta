@@ -96,6 +96,23 @@ body{
   color: white;
 }
 
+
+.menu-fade {
+  opacity: 1;
+  transition: background .15s ease-in-out;
+  -moz-transition: background .15s ease-in-out;
+  -webkit-transition: background .15s ease-in-out;
+}
+
+.menu-fade:hover {
+  background-color: #58b8ee;
+  color: #f7f7f7;
+}
+
+.menu-fade:active{
+  color: #f7f7f7;
+}
+
 .newsletter{
   background-color: #f2f2f2;
   padding-top: 30px;
