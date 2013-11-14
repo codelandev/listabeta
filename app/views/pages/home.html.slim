@@ -1,28 +1,24 @@
-.container
-  .logo
-    .text-center
-      = image_tag 'logo.png'
-  .how-it-works-text.text-center
-    .text-center
-      = image_tag 'header-text.png'
-  .how-it-works-video.text-center
-      iframe allowfullscreen="" frameborder="0" height="385" mozallowfullscreen="" src="//player.vimeo.com/video/78820147?color=ffd600?hd=on" webkitallowfullscreen="" width="685"
-
-  .how-it-works-icons.text-center
-    .text-center
-      = image_tag 'header-icons.png'
-
-.full-color-background
+.banner
   .container
     .text-center
-      - Startup.tag_counts_on(:markets).each do |f|
-        span.label.label-warning.market-tag = "#{f.name} (#{f.count})"
+      h1 Se você não pode ser encontrado, você não existe
+      h3 Tenha acesso exclusivo a mais de 100 betas de startups mensais
+      .icons
+        = image_tag 'header-icons.png'
 
-      h2 Apresente sua Startup no Lista Beta
-      p.sub-header Construir um produto relevante e atingir seu público pode ser uma tarefa muito difícil. A Lista Beta lhe ajuda a divulgar sua startup e a atrair early adopters que irão fornecer o feedback que você precisa.
-      = link_to new_startup_registration_path do
-        button.default-btn.default-btn-big.fade Mostre sua startup ao mundo*
-      p.explanation-text #{"* sua startup só será exibida na data de lançamento (20/11)"}
+.container
+  .text-center
+    - Startup.tag_counts_on(:markets).each do |f|
+      span.label.label-warning.market-tag = "#{f.name} (#{f.count})"
+
+    p.subtitle Novas Startups
+  .boxes-area
+    .row
+      - 6.times do
+        = render partial: 'startups/startup_box'
+
+  .text-center
+    = link_to "MAIS STARTUPS", root_path, class: 'btn default-btn fade'
 
 .container
   - @highlighteds.each do |startup|
