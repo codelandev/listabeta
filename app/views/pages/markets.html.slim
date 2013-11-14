@@ -1,0 +1,8 @@
+- if @startups.present?
+  - @startups.each do |f|
+    span.label.label-warning.market-tag = f.name
+
+- elsif @markets.present?
+  - @markets.each do |f|
+    span.label.label-warning.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+

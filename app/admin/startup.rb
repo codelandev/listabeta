@@ -1,26 +1,33 @@
 ActiveAdmin.register Startup do
+  controller do
+    private
+
+    def resource
+      @startup ||= Startup.friendly.find(params[:id])
+    end
+  end
   # Actions to highlight Startup
   member_action :highlight do
-    Startup.find(params[:id]).highlight!
+    Startup.friendly.find(params[:id]).highlight!
     flash[:notice] = "Startup posta em destaque com sucesso."
     redirect_to :back
   end
 
   member_action :unhighlight do
-    Startup.find(params[:id]).unhighlight!
+    Startup.friendly.find(params[:id]).unhighlight!
     flash[:notice] = "Startup tirada de destaque com sucesso."
-    redirect_to :back
+    edirect_to :back
   end
 
   action_item only: :show do
-    startup = Startup.find(params[:id])
+    startup = Startup.friendly.find(params[:id])
     unless startup.highlighted.nil?
       link_to "Destacar", highlight_admin_startup_path if !startup.highlighted?
     end
   end
 
   action_item only: :show do
-    startup = Startup.find(params[:id])
+    startup = Startup.friendly.find(params[:id])
     unless startup.highlighted.nil?
       link_to "Tirar do destaque", unhighlight_admin_startup_path if startup.highlighted?
     end
@@ -28,26 +35,26 @@ ActiveAdmin.register Startup do
 
   # Actions to approve Startup
   member_action :approve do
-    Startup.find(params[:id]).approve!
+    Startup.friendly.find(params[:id]).approve!
     flash[:notice] = "Startup aprovada com sucesso."
     redirect_to :back
   end
 
   member_action :unapprove do
-    Startup.find(params[:id]).unapprove!
+    Startup.friendly.find(params[:id]).unapprove!
     flash[:notice] = "Startup desaprovada com sucesso."
     redirect_to :back
   end
 
   action_item only: :show do
-    startup = Startup.find(params[:id])
+    startup = Startup.friendly.find(params[:id])
     unless startup.approved.nil?
       link_to "Aprovar", approve_admin_startup_path if !startup.approved?
     end
   end
 
   action_item only: :show do
-    startup = Startup.find(params[:id])
+    startup = Startup.friendly.find(params[:id])
     unless startup.approved.nil?
       link_to "Desaprovar", unapprove_admin_startup_path if startup.approved?
     end
