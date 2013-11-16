@@ -1,11 +1,6 @@
 class QuestionnairesController < InheritedResources::Base
   actions :create, :new
   belongs_to :startup, param: :startup_id
-  before_filter :authenticate_startup!, only:[:index, :show]
-
-  def index
-    @my_questionnaires = Questionnaire.where(startup_id: current_startup)
-  end
 
   def new
     @questionnaire = Questionnaire.new
@@ -17,15 +12,6 @@ class QuestionnairesController < InheritedResources::Base
     @questionnaire = Questionnaire.new(permitted_params[:questionnaire])
     @questionnaire.startup_id = resource.id
     create!(notice: I18n.t('flash.questionnaires.send_success')) { root_path }
-  end
-
-  def show
-    @questionnaire = Questionnaire.find(params[:id])
-    if @questionnaire.startup != current_startup
-      redirect_to startup_questionnaires_path, alert: I18n.t('flash.questionnaires.unauthorized_access')
-    else
-      @questionnaire
-    end
   end
 
   protected

@@ -2,6 +2,7 @@ doctype html
 
 html
   head
+    script src="https://www.google.com/jsapi" type="text/javascript"
     meta[charset="utf-8"]
     /[if lt IE 9]
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
@@ -9,7 +10,7 @@ html
     link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'
     title Lista Beta - Lance sua Startup ao mundo
     = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "chartkick"
     = csrf_meta_tags
     = favicon_link_tag "favicon.ico"
     = analytics_init if Rails.env.production?

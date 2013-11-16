@@ -1,14 +1,44 @@
 .container
-  .well.col-md-6.col-md-offset-3
+  .col-md-12
     h1 Meus Feedbacks
 
-    br
-    .register
-      .form-group
-        p Compartilhe este link com seus Early Adopters
-        = text_field_tag nil, new_startup_questionnaire_url(Startup.first), class: 'form-control'
+  .col-md-6
+    #chart_div_1
+  .col-md-6
+    #chart_div_2
 
-    - @my_questionnaires.each do |questionnaire|
-      .well
-        = link_to questionnaire.email, startup_questionnaire_path(id: questionnaire.id), target: 'blank'
+  br
+  .register
+    .form-group
+      p Compartilhe este link com seus Early Adopters
+      = text_field_tag nil, new_startup_questionnaire_url(Startup.first), class: 'form-control'
 
+  - @my_questionnaires.each do |questionnaire|
+    .well
+      = link_to questionnaire.email, startup_questionnaire_path(id: questionnaire.id), target: 'blank'
+
+javascript:
+  google.load("visualization", "1", {packages:["corechart"]});
+
+  google.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Sales', 'Expenses'],
+      ['2004',  1000,      400],
+      ['2005',  1170,      460],
+      ['2006',  660,       1120],
+      ['2007',  1030,      540]
+      ]);
+
+    var options = {
+      title: 'Company Performance',
+      hAxis: {title: 'Year', titleTextStyle: {color: 'red'}},
+      pieHole: 0.4,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div_1'));
+    chart.draw(data, options);
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div_2'));
+    chart.draw(data, options);
+  }
