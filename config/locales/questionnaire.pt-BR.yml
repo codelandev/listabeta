@@ -27,12 +27,12 @@ pt-BR:
       n: Não
     a5:
       range1: Não pagaria
-      range2: 5 à 10
-      range3: 11 à 20
-      range4: 21 à 40
-      range5: 41 à 60
-      range6: 61 à 100
-      range7: Mais que 100
+      range2: 5 à 10 reais
+      range3: 11 à 20 reais
+      range4: 21 à 40 reais
+      range5: 41 à 60 reais
+      range6: 61 à 100 reais
+      range7: Mais que 100 reais
 
   flash:
     questionnaires:

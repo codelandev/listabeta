@@ -3,12 +3,21 @@
     = link_to root_path do
       .logo
         = image_tag 'logo-azul.png', alt: 'Lista Beta Logo'
-    = link_to root_path do
-      .menu-item.menu-fade
-        span STARTUPS
-    .menu-button
-      = link_to "ENVIE SUA STARTUP", new_startup_registration_path, class: 'btn default-btn fade'
-    .pull-right
-      = link_to new_startup_session_path do
-        .menu-item.last-menu-item.menu-fade
-          span ENTRAR
+    - if startup_signed_in?
+      = link_to root_path do
+        .menu-item.menu-fade
+          span STARTUPS
+      = link_to dashboard_path do
+        .menu-item.menu-fade
+          span DASHBOARD
+      .pull-right
+        = link_to destroy_startup_session_path, method: :delete do
+          .menu-item.last-menu-item.menu-fade
+            span SAIR
+    - else
+      .menu-button
+        = link_to "ENVIE SUA STARTUP", new_startup_registration_path, class: 'btn default-btn fade'
+      .pull-right
+        = link_to new_startup_session_path do
+          .menu-item.last-menu-item.menu-fade
+            span ENTRAR
