@@ -47,6 +47,7 @@ body{
   font-family: 'Open Sans', sans-serif;
   a{
     color: #4aa3df;
+    font-weight: 200;
   }
 }
 
@@ -78,6 +79,8 @@ body{
 
 .default-btn:active{
   color: white;
+  border:none;
+  padding-bottom: 16px;
 }
 
 .fade {
@@ -117,6 +120,7 @@ body{
   background-color: #f2f2f2;
   padding-top: 30px;
   padding-bottom: 56px;
+  margin: 60px 0 0 0;
   input{
     width: 310px;
     height: 47px;
@@ -126,9 +130,13 @@ body{
 
 
 .well{
-  background-color: white;
-  margin-top: 30px;
+  background-color: rgb(247, 247, 247);
+  margin-top: 60px;
+  margin-bottom: 80px;
   padding: 20px 40px 40px 40px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .register{
@@ -173,4 +181,14 @@ body{
 
 .market-tag{
   margin-right: 10px;
+}
+
+/* Promo-Header */
+.icon-header {
+  font-size: 12px;
+  margin: 20px 0 0 0;
+  font-weight:400;
+  img{
+    margin: 0 0 10px 0;
+  }
 }

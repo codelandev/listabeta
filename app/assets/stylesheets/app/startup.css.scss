@@ -6,9 +6,9 @@
 
 .startup-box{
   float: left;
-  border-left: 1px solid rgb(247, 247, 247);
+  /*border-left: 1px solid rgb(247, 247, 247);
   border-right: 1px solid rgb(247, 247, 247);
-  border-bottom: 2px solid rgb(247, 247, 247);
+  border-bottom: 2px solid rgb(247, 247, 247);*/
   border-radius: 4px;
   margin-bottom: 30px;
   background-color: rgb(247, 247, 247);
@@ -16,6 +16,7 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   .description{
     padding: 20px;
+    font-weight: 200;
     a{
       text-transform: capitalize;
       line-height: 34px;
