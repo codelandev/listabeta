@@ -6,9 +6,10 @@ Listabeta::Application.routes.draw do
   root 'pages#home'
   
   get 'mercados/(:tag)' => 'pages#markets', as: :markets
+  get 'dashboard' => 'pages#dashboard', as: :dashboard
 
   resources :startups do
-    resources :questionnaires, only: [:index, :new, :create, :show]
+    resources :questionnaires, only: [:new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
