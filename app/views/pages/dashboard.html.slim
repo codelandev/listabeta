@@ -88,6 +88,7 @@
             thead
               th
             tbody
+              = link_to "Baixar lista de emails em CSV", dashboard_path(format: "csv")
               - @all_questionnaires.page(params[:page]).per(20).each do |questionnaire|
                 tr
                   td
