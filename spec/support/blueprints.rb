@@ -18,14 +18,14 @@ Startup.blueprint do
   website { "http://www.startup#{sn}.com.br" }
   pitch { "Apenas mais um PITCH da startup #{sn}" }
   description { "Apenas mais uma DESCRIÇÃO da startup #{sn}" }
-  status { Status::IN_DEVELOPMENT }
+  phase { Phase::IN_DEVELOPMENT }
   screenshot { File.open(Rails.root.join('spec', 'fixtures', 'photo.png')) }
   state { "Rio Grande do Sul" }
   city { "Porto Alegre" }
   market_list { "Fitness, Food, Startups" }
   password { "123123123" }
   highlighted { false }
-  approved { false }
+  status { Status::PENDENT }
 end
 
 Questionnaire.blueprint do

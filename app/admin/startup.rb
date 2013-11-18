@@ -16,7 +16,7 @@ ActiveAdmin.register Startup do
   member_action :unhighlight do
     Startup.friendly.find(params[:id]).unhighlight!
     flash[:notice] = "Startup tirada de destaque com sucesso."
-    edirect_to :back
+    redirect_to :back
   end
 
   action_item only: :show do
@@ -48,16 +48,12 @@ ActiveAdmin.register Startup do
 
   action_item only: :show do
     startup = Startup.friendly.find(params[:id])
-    unless startup.approved.nil?
-      link_to "Aprovar", approve_admin_startup_path if !startup.approved?
-    end
+    link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pendent?
   end
 
   action_item only: :show do
     startup = Startup.friendly.find(params[:id])
-    unless startup.approved.nil?
-      link_to "Desaprovar", unapprove_admin_startup_path if startup.approved?
-    end
+    link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pendent?
   end
 
   index do
@@ -70,18 +66,31 @@ ActiveAdmin.register Startup do
 
   show do
     attributes_table do
-      row :screenshot
+      row :status do |startup|
+        status_tag(Status.t(startup.status))
+      end
+      row :screenshot do |startup|
+        link_to startup.screenshot, startup.screenshot_url, target: 'blank'
+      end
       row :name
-      row :website
+      row :phase do |startup|
+        status_tag(Phase.t(startup.phase))
+      end
+      row :website do |startup|
+        link_to startup.website, startup.website, target: 'blank'
+      end
       row :pitch
       row :description
       row :email
       row :twitter
       row :state
       row :city
-      row :markets
-      row :approved
-      row :highlighted
+      row :markets do |startup|
+        startup.market_list.each { |market| puts status_tag(market) }
+      end
+      row :highlighted do |startup|
+        status_tag(startup.highlighted? ? 'Sim' : 'Não')
+      end
     end
   end
 end

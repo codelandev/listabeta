@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112172450) do
+ActiveRecord::Schema.define(version: 20131118182004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 20131112172450) do
     t.string   "website",                default: "",    null: false
     t.string   "twitter",                default: "",    null: false
     t.string   "markets",                default: "",    null: false
-    t.integer  "status",                 default: 0,     null: false
     t.text     "description",            default: "",    null: false
     t.string   "screenshot",             default: "",    null: false
     t.string   "reset_password_token"
@@ -100,8 +99,9 @@ ActiveRecord::Schema.define(version: 20131112172450) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "highlighted",            default: false
-    t.boolean  "approved",               default: false
     t.string   "slug"
+    t.integer  "phase",                  default: 1,     null: false
+    t.integer  "status",                 default: 1,     null: false
   end
 
   add_index "startups", ["email"], name: "index_startups_on_email", unique: true, using: :btree

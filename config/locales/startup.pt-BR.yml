@@ -12,7 +12,8 @@ pt-BR:
         email: Email do responsável
         pitch: Pitch
         state: Estado
-        status: Status
+        status: Status da aprovação
+        phase: Fase do negócio
         website: URL do site
         twitter: Twitter URL
         markets: Tipos de mercado (separados por vírgula)
@@ -26,8 +27,12 @@ pt-BR:
         password_confirmation: Confirmar senha
 
   enumerations:
-    status:
+    phase:
       in_development: Em desenvolvimento
       private_beta: Beta privado
       public_beta: Beta público
       online: No ar
+    status:
+      pendent: Pendente
+      approved: Aprovada
+      unapproved: Desaprovada
