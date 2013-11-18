@@ -3,10 +3,10 @@
     = link_to root_path do
       .logo
         = image_tag 'logo-azul.png', alt: 'Lista Beta Logo'
+    = link_to startups_path do
+      .menu-item.menu-fade
+        span STARTUPS
     - if startup_signed_in?
-      = link_to root_path do
-        .menu-item.menu-fade
-          span STARTUPS
       = link_to dashboard_path do
         .menu-item.menu-fade
           span DASHBOARD

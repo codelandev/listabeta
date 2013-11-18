@@ -1,6 +1,6 @@
-.container
+.container.dashboard
   .col-md-12.text-center.col-sm-12
-    h1 = "Dashboard <b>#{current_startup.name.upcase}</b>".html_safe
+    h1 = "Dashboard <b>#{current_startup.name}</b>".html_safe
     .register
       .form-group
         .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
@@ -8,121 +8,110 @@
         .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
           = text_field_tag nil, new_startup_questionnaire_url(current_startup), class: 'form-control text-center'
 
-- if @feedbacks_total.zero?
-  .container
-    br
-    br
-    br
-    br
-    br
-    br
+  - if @feedbacks_total.zero?
     .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
-      h2 Você ainda não recebeu nenhum feedback. 
-      h2 = "Enquanto isso, que tal publicar ler algumas notícias no #{link_to 'StartupNews', 'http://www.startupnews.com.br', target: 'blank'} ein?".html_safe
-- else
-  hr
-  .container
-    .col-md-4.col-sm-4.text-center
-      br
-      br
-      br
-      br
-      .col-md-6.col-sm-6
-        h1 = @feedbacks_total
-      .col-md-6.col-sm-6
-        h5 Total de feedbacks enviados pelos usuários que já testaram sua plataforma
-    
-    .col-md-8.col-sm-8
-      = line_chart @count_last_seven_days_for
-  hr
-  .container
-    .col-md-12.col-sm-12.text-center
-      .col-md-6.col-sm-6
-        h1 = t('activerecord.attributes.questionnaire.a2')
-        = pie_chart @a2
-      .col-md-6.col-sm-6
-        h1 = t('activerecord.attributes.questionnaire.a3')
-        = pie_chart @a3
-      .col-md-6.col-sm-6
-        h1 = t('activerecord.attributes.questionnaire.a4')
-        = pie_chart @a4
-      .col-md-6.col-sm-6
-        h1 = t('activerecord.attributes.questionnaire.a5')
-        = pie_chart @a5
+      h3 Você ainda não recebeu nenhum feedback. 
+      p = "Enquanto isso, que tal publicar ou ler algumas notícias no #{link_to 'STARTUPNEWS', 'http://www.startupnews.com.br', target: 'blank'} ein?".html_safe
+  - else
+    hr
+    .container
+      .col-md-4.col-sm-4.text-center
+        .col-md-6.col-sm-6
+          h1 = @feedbacks_total
+        .col-md-6.col-sm-6
+          h5 Total de feedbacks enviados pelos usuários que já testaram sua plataforma
+      
+      .col-md-8.col-sm-8
+        = line_chart @count_last_seven_days_for
+    hr
+    .container
+      .col-md-12.col-sm-12.text-center
+        .col-md-6.col-sm-6
+          h1 = t('activerecord.attributes.questionnaire.a2')
+          = pie_chart @a2
+        .col-md-6.col-sm-6
+          h1 = t('activerecord.attributes.questionnaire.a3')
+          = pie_chart @a3
+        .col-md-6.col-sm-6
+          h1 = t('activerecord.attributes.questionnaire.a4')
+          = pie_chart @a4
+        .col-md-6.col-sm-6
+          h1 = t('activerecord.attributes.questionnaire.a5')
+          = pie_chart @a5
 
-  hr
-  .container
-    .col-md-12.col-sm-12
-      ul#myTab.nav.nav-tabs
-        li.active
-          a data-toggle="tab" href="#home" PITCH
-        li
-          a data-toggle="tab" href="#profile" Opiniões
-        li
-          a data-toggle="tab" href="#messages" Lista de emails
+    hr
+    .container
+      .col-md-12.col-sm-12
+        ul#myTab.nav.nav-tabs
+          li.active
+            a data-toggle="tab" href="#home" PITCH
+          li
+            a data-toggle="tab" href="#profile" Opiniões
+          li
+            a data-toggle="tab" href="#messages" Lista de emails
 
-      .tab-content
-        #home.tab-pane.active
-          h1 Últimas opiniões sobre o PITCH
-          table.table.table-striped
-            thead
-              th
-            tbody
-              - @all_questionnaires.each do |questionnaire|
-                tr
-                  td = questionnaire.a1
-        
-        #profile.tab-pane
-          h1 Últimas opiniões para sua Startup
-          table.table.table-striped
-            thead
-              th
-            tbody
-              - @all_questionnaires.each do |questionnaire|
-                tr
-                  td = questionnaire.opinion
-        
-        #messages.tab-pane
-          h1 Lista de Early Adopters
-          table.table.table-striped
-            thead
-              th
-            tbody
-              - @all_questionnaires.page(params[:page]).per(20).each do |questionnaire|
-                tr
-                  td
-                    = link_to questionnaire.email, '#', data: { toggle: "modal", target: "#modal-#{questionnaire.id}" }
+        .tab-content
+          #home.tab-pane.active
+            h1 Últimas opiniões sobre o PITCH
+            table.table.table-striped
+              thead
+                th
+              tbody
+                - @all_questionnaires.each do |questionnaire|
+                  tr
+                    td = questionnaire.a1
+          
+          #profile.tab-pane
+            h1 Últimas opiniões para sua Startup
+            table.table.table-striped
+              thead
+                th
+              tbody
+                - @all_questionnaires.each do |questionnaire|
+                  tr
+                    td = questionnaire.opinion
+          
+          #messages.tab-pane
+            h1 Lista de Early Adopters
+            table.table.table-striped
+              thead
+                th
+              tbody
+                - @all_questionnaires.page(params[:page]).per(20).each do |questionnaire|
+                  tr
+                    td
+                      = link_to questionnaire.email, '#', data: { toggle: "modal", target: "#modal-#{questionnaire.id}" }
 
-                    .modal.fade.in role="dialog" id="modal-#{questionnaire.id}" aria-hidden="false"
-                      .modal-dialog
-                        .modal-content
-                          .modal-header
-                            button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
-                            h2.modal-title = questionnaire.email
-                          .modal-body
-                              span.label.label-info = t('activerecord.attributes.questionnaire.a1')  
-                              p = questionnaire.a1
+                      .modal.fade.in role="dialog" id="modal-#{questionnaire.id}" aria-hidden="false"
+                        .modal-dialog
+                          .modal-content
+                            .modal-header
+                              button type="button" class="close" data-dismiss="modal" aria-hidden="true"&times;
+                              h2.modal-title = questionnaire.email
+                            .modal-body
+                                span.label.label-info = t('activerecord.attributes.questionnaire.a1')  
+                                p = questionnaire.a1
 
-                              span.label.label-info = t('activerecord.attributes.questionnaire.a2')
-                              p = questionnaire.a2_humanize
+                                span.label.label-info = t('activerecord.attributes.questionnaire.a2')
+                                p = questionnaire.a2_humanize
 
-                              span.label.label-info = t('activerecord.attributes.questionnaire.a3')
-                              p = questionnaire.a3_humanize
+                                span.label.label-info = t('activerecord.attributes.questionnaire.a3')
+                                p = questionnaire.a3_humanize
 
-                              span.label.label-info = t('activerecord.attributes.questionnaire.a4')
-                              p = questionnaire.a4_humanize
+                                span.label.label-info = t('activerecord.attributes.questionnaire.a4')
+                                p = questionnaire.a4_humanize
 
-                              span.label.label-info = t('activerecord.attributes.questionnaire.a5')
-                              p = questionnaire.a5_humanize
+                                span.label.label-info = t('activerecord.attributes.questionnaire.a5')
+                                p = questionnaire.a5_humanize
 
-                              span.label.label-info = t('activerecord.attributes.questionnaire.opinion')
-                              p = questionnaire.opinion
+                                span.label.label-info = t('activerecord.attributes.questionnaire.opinion')
+                                p = questionnaire.opinion
 
-                          .modal-footer
-                            button.btn.btn-default data-dismiss="modal" type="button" Fechar
+                            .modal-footer
+                              button.btn.btn-default data-dismiss="modal" type="button" Fechar
 
-              .text-center
-                = paginate @all_questionnaires.page(params[:page]).per(20)
+                .text-center
+                  = paginate @all_questionnaires.page(params[:page]).per(20)
 
 
 javascript:
