@@ -8,7 +8,7 @@ describe Startup do
     it { should validate_presence_of :pitch }
     it { should validate_presence_of :description }
     it { should validate_presence_of :screenshot }
-    it { should validate_presence_of :status }
+    it { should validate_presence_of :phase }
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
     it { should validate_presence_of :market_list }
@@ -35,9 +35,9 @@ describe Startup do
   describe "Scopes" do
     context "#highlighted" do
       before do
-        @startup_1 = Startup.make!(highlighted: true, approved: true)
+        @startup_1 = Startup.make!(highlighted: true, status: Status::APPROVED)
         @startup_2 = Startup.make!(highlighted: true)
-        @startup_3 = Startup.make!(approved: true)
+        @startup_3 = Startup.make!(status: Status::APPROVED)
       end
 
       it "return only the highlighted startups that are approved" do
@@ -52,9 +52,9 @@ describe Startup do
 
     context "#unhighlighted" do
       before do
-        @startup_1 = Startup.make!(approved: true)
-        @startup_2 = Startup.make!(approved: true)
-        @startup_3 = Startup.make!(highlighted: true, approved: true)
+        @startup_1 = Startup.make!(status: Status::APPROVED)
+        @startup_2 = Startup.make!(status: Status::APPROVED)
+        @startup_3 = Startup.make!(highlighted: true, status: Status::APPROVED)
       end
 
       it "return only the unhighlighted startups" do
@@ -69,9 +69,9 @@ describe Startup do
 
     context "#approved" do
       before do
-        @startup_1 = Startup.make!(approved: true)
-        @startup_2 = Startup.make!(approved: true)
-        @startup_3 = Startup.make!
+        @startup_1 = Startup.make!(status: Status::APPROVED)
+        @startup_2 = Startup.make!(status: Status::APPROVED)
+        @startup_3 = Startup.make!(status: Status::UNAPPROVED)
       end
 
       it "return only the approved startups" do
@@ -86,9 +86,9 @@ describe Startup do
 
     context "#unapproved" do
       before do
-        @startup_1 = Startup.make!
-        @startup_2 = Startup.make!
-        @startup_3 = Startup.make!(approved: true)
+        @startup_1 = Startup.make!(status: Status::UNAPPROVED)
+        @startup_2 = Startup.make!(status: Status::UNAPPROVED)
+        @startup_3 = Startup.make!(status: Status::APPROVED)
       end
 
       it "return only the unhighlighted startups" do
@@ -140,17 +140,17 @@ describe Startup do
     context "#approve!" do
       before do
         @startup_unapproved ||= Startup.make!
-        @startup_approved   ||= Startup.make!(approved: true)
+        @startup_approved   ||= Startup.make!(status: Status::APPROVED)
       end
 
       it "set when is unapproved" do
         @startup_unapproved.approve!
-        expect(@startup_unapproved.approved).to be_true
+        expect(@startup_unapproved.status).to eql Status::APPROVED
       end
 
       it "do nothing when already approved" do
         @startup_approved.approve!
-        expect(@startup_approved.approved).to be_true
+        expect(@startup_approved.status).to eql Status::APPROVED
       end
 
       it "send mail after approve!" do
@@ -162,17 +162,17 @@ describe Startup do
     context "#unapprove!" do
       before do
         @startup_unapproved ||= Startup.make!
-        @startup_approved   ||= Startup.make!(approved: true)
+        @startup_approved   ||= Startup.make!(status: Status::APPROVED)
       end
 
       it "set when is approved" do
         @startup_approved.unapprove!
-        expect(@startup_approved.approved).to be_false
+        expect(@startup_approved.status).to eql Status::UNAPPROVED
       end
 
       it "do nothing when already unapproved" do
         @startup_approved.unapprove!
-        expect(@startup_approved.approved).to be_false
+        expect(@startup_approved.status).to eql Status::UNAPPROVED
       end
     end
   end

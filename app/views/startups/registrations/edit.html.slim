@@ -27,9 +27,9 @@
         .form-group
           = f.input :description, :required => true, class: 'form-control'
         .form-group
-          = f.label :status
+          = f.label :phase
           br
-          = f.select :status, Status.to_a, :required => true, class: 'form-control'
+          = f.select :phase, Phase.to_a, :required => true, class: 'form-control'
         .form-group
           = f.input :state, :required => true, class: 'form-control'
         .form-group
