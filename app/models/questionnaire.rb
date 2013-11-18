@@ -10,4 +10,13 @@ class Questionnaire < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
 
   scope :total_for, ->(current_startup) { where(startup: current_startup).count }
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["email"]
+      all.each do |questionnaire|
+        csv << questionnaire.attributes.values_at(*["email"])
+      end
+    end
+  end
 end

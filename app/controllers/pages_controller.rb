@@ -22,5 +22,10 @@ class PagesController < ApplicationController
     @a3 = Hash[Questionnaire.where(startup: current_startup).group('a3').count.map { |key, value| [A3::t(key), value] }]
     @a4 = Hash[Questionnaire.where(startup: current_startup).group('a4').count.map { |key, value| [A4::t(key), value] }]
     @a5 = Hash[Questionnaire.where(startup: current_startup).group('a5').count.map { |key, value| [A5::t(key), value] }]
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @all_questionnaires.to_csv, :disposition => "attachment; filename=#{Date.today.strftime('%d-%m-%Y')}-emails.csv" }
+    end
   end
 end
