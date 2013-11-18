@@ -21,9 +21,8 @@
   .text-center
     p.subtitle Novas Startups
   .boxes-area
-    .row
-      - 6.times do
-        = render partial: 'startups/startup_box'
+    - 6.times do
+      = render partial: 'startups/startup_box'
   .text-center
     = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
 

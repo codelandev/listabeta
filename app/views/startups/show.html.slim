@@ -1,6 +1,7 @@
 .container.show-page
   .boxes-area
-    p.subtitle.text-center = resource.name
+    p.show-title.text-center = resource.name
+    p.show-pitch.text-center = resource.pitch
     .img-startup
       .img-startup-frame
         .img-startup-bar
@@ -18,7 +19,7 @@
             = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
     .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
       .startup-pitch
-        = resource.pitch
+        = resource.description
       .startup-btns
         = link_to "VISITE O SITE", resource.website, target: "_blank", class: 'btn default-btn fade visit'
         = link_to "COMPARTILHE", resource.website, target: "_blank", class: 'btn default-btn fade share' 
