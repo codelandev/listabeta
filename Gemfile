@@ -69,6 +69,9 @@ gem 'groupdate'
 # Charts API
 gem 'chartkick'
 
+# For elegant meta_tags
+gem 'meta-tags', :require => 'meta_tags'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
