@@ -1,8 +1,19 @@
-- if @startups.present?
-  - @startups.each do |f|
-    span.label.label-warning.market-tag = f.name
+.container
+  - if @startups.present?
+    .text-center
+      p.subtitle = "Startups para <b>#{params[:tag]}</b>".html_safe
+    .boxes-area
+      - @startups.each do |startup|
+        = render partial: 'startups/startup_box', locals: {startup: startup}
+    .clearfix
+    .text-center
+      = link_to "OUTRAS STARTUPS", startups_path, class: 'btn default-btn fade'
+    br/
 
-- elsif @markets.present?
-  - @markets.each do |f|
-    span.label.label-warning.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-
+  - elsif @markets.present?
+    .text-center
+      p.subtitle Mercados
+      .tag-cloud
+        - @markets.each do |f|
+          span.label.label-default.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+    br/
