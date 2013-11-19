@@ -24,10 +24,5 @@
         = link_to "VISITE O SITE", resource.website, target: "_blank", class: 'btn default-btn fade visit'
         = link_to "COMPARTILHE", resource.website, target: "_blank", class: 'btn default-btn fade share' 
         = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(current_startup), target: "_blank", class: 'btn default-btn fade feedback'
-.newsletter
-  .container
-    .text-center
-      h2 Não perca a próxima grande startup
-      p.sub-header Receba em seu e-mail as últimas startups brasileiras.
-      .col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3
-        = render partial: 'layouts/mailchimp'
+
+= render partial: 'layouts/newsletter'
