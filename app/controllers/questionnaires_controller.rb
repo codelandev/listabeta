@@ -3,12 +3,14 @@ class QuestionnairesController < InheritedResources::Base
   belongs_to :startup, param: :startup_id
 
   def new
+    set_meta_tags noindex: true, nofollow: true
     @questionnaire = Questionnaire.new
     @startup = resource
     new!
   end
 
   def create
+    set_meta_tags noindex: true, nofollow: true
     @questionnaire = Questionnaire.new(permitted_params[:questionnaire])
     @questionnaire.startup_id = resource.id
     create!(notice: I18n.t('flash.questionnaires.send_success')) { root_path }

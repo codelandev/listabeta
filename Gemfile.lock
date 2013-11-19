@@ -133,6 +133,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.5.0)
+      actionpack
     method_source (0.8.2)
     mime-types (1.25)
     mini_magick (3.6.0)
@@ -277,6 +279,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   machinist (~> 2.0)
+  meta-tags
   mini_magick (~> 3.6.0)
   pg (~> 0.16.0)
   pry-rails (~> 0.3.2)
