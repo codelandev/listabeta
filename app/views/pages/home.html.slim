@@ -5,15 +5,15 @@
       h3 Tenha acesso exclusivo as mais novas startups brasileiras
       .col-md-8.col-md-offset-3
         .col-md-3.icon-header
-          = image_tag 'icon-envie.png', alt: 'Envie sua Startup'
+          = image_tag 'icon-envie.png', title: 'Envie sua Startup'
           br/
           | ENVIE SUA STARTUP
         .col-md-3.icon-header
-          = image_tag 'icon-email.png', alt: 'Early adopters recebem por email'
+          = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
           br/
           | EARLY ADOPTERS RECEBEM POR EMAIL
         .col-md-3.icon-header
-          = image_tag 'icon-feedback.png', alt: 'Ganhe usuários e feedback'
+          = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
           br/
           | GANHE USUÁRIOS E FEEDBACK
 
@@ -23,10 +23,11 @@
   .boxes-area
     - @unhighlighteds.each do |startup|
       = render partial: 'startups/startup_box', locals: {startup: startup}
-  .text-center
-    .clearfix
-    = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
+    .text-center
+      .clearfix
+      = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
 
+<<<<<<< HEAD
   .text-center
     p.subtitle Mercados em Destaque
     .tag-cloud
@@ -41,6 +42,14 @@
         span.label.label-default.market-tag
           = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
 >>>>>>> 6d731f7... Added variables and big startup box on home page
+=======
+    .text-center
+      p.subtitle Mercados em Destaque
+      .tag-cloud
+        - Startup.tag_counts_on(:markets).each do |f|
+          span.label.label-default.market-tag
+            = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+>>>>>>> f041b93... Hot Fixes: changed some titles in links in home and header; Changed some text in home; Created newsletter partials and removed footer from several pages.
 
   .text-center
     p.subtitle Startups em Destaque
@@ -49,10 +58,4 @@
       - @highlighteds.each do |startup|
         = render partial: 'startups/startup_box_big', locals: {startup: startup}
 
-.newsletter
-  .container
-    .text-center
-      h2 Não perca a próxima grande startup
-      p.sub-header Receba em seu e-mail as últimas startups brasileiras.
-      .col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3
-        = render partial: 'layouts/mailchimp'
+= render partial: 'layouts/newsletter'
