@@ -1,3 +1,5 @@
+- set_meta_tags :site => "Lista Beta | #{resource.name}", :keywords => resource.market_list.join(', '), :og => { :description => resource.pitch, :title => "Lista Beta | #{resource.name}", :image => resource.screenshot_url, :url => request.url }
+
 .container.show-page
   .boxes-area
     p.show-title.text-center = resource.name

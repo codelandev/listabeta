@@ -15,6 +15,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    set_meta_tags noindex: true, nofollow: true
+
     @feedbacks_total = Questionnaire.total_for(current_startup)
     @all_questionnaires = Questionnaire.where(startup: current_startup)
     @count_last_seven_days_for = Questionnaire.where(startup: current_startup).group_by_day(:created_at).limit(7).count
