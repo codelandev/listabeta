@@ -13,14 +13,14 @@
             .img-startup-bar-input
         .img-startup-site
           = image_tag resource.screenshot, width: '100%'
-      .cold-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
+      .cold-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2.text-center
         - resource.tag_counts_on(:markets).each do |f|
           span.label.label-default.market-tag
             = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
     .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
       .startup-pitch
         = resource.description
-      .startup-btns
+      .startup-btns.text-center
         = link_to "VISITE O SITE", resource.website, target: "_blank", class: 'btn default-btn fade visit'
         = link_to "COMPARTILHE", resource.website, target: "_blank", class: 'btn default-btn fade share' 
         = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(current_startup), target: "_blank", class: 'btn default-btn fade feedback'
