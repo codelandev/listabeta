@@ -1,39 +1,40 @@
-.well.col-md-6.col-md-offset-3
-  h2.text-center = "Formulário de feedback para a Startup <i><b>#{@startup.name}</b></i>".html_safe
+.container
+  .well.col-md-6.col-md-offset-3
+    h2.text-center = "Feedback para a Startup <b>#{@startup.name}</b>".html_safe
 
-  br
-  = simple_form_for(@questionnaire, url: startup_questionnaires_path, :html => { class: 'form', :method => :post }) do |f|
-    .register
-      .form-group
-        = f.hidden_field :startup_id, value: @startup.id
-      .form-group
-        = f.input :email, :required => true, class: 'form-control'
-      .form-group
-        = f.label :a1
-        br
-        = f.text_area :a1, :required => true, class: 'form-control'
-        = f.error :a1
-      .form-group
-        = f.label :a2
-        br
-        = f.select :a2, A2.to_a, :required => true, class: 'form-control'
-      .form-group
-        = f.label :a3
-        br
-        = f.select :a3, A3.to_a, :required => true, class: 'form-control'
-      .form-group
-        = f.label :a4
-        br
-        = f.select :a4, A4.to_a, :required => true, class: 'form-control'
-      .form-group
-        = f.label :a5
-        br
-        = f.select :a5, A5.to_a, :required => true, class: 'form-control'
-      .form-group
-        = f.label :opinion
-        br
-        = f.text_area :opinion, :required => true, class: 'form-control'
-        = f.error :opinion
+    br
+    = simple_form_for(@questionnaire, url: startup_questionnaires_path, :html => { class: 'form', :method => :post }) do |f|
+      .register
+        .form-group
+          = f.hidden_field :startup_id, value: @startup.id
+        .form-group
+          = f.input :email, :required => true, class: 'form-control'
+        .form-group
+          = f.label :a1
+          br
+          = f.text_area :a1, :required => true, class: 'form-control'
+          = f.error :a1
+        .form-group
+          = f.label :a2
+          br
+          = f.select :a2, A2.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.label :a3
+          br
+          = f.select :a3, A3.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.label :a4
+          br
+          = f.select :a4, A4.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.label :a5
+          br
+          = f.select :a5, A5.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.label :opinion
+          br
+          = f.text_area :opinion, :required => true, class: 'form-control'
+          = f.error :opinion
 
-    .text-center
-      = f.button :submit, "Enviar feedback", class: 'btn default-btn fade'
+      .text-center
+        = f.button :submit, "Enviar feedback", class: 'btn default-btn fade'
