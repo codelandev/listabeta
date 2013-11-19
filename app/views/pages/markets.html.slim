@@ -1,19 +1,21 @@
 .container
-  - if @startups.present?
-    .text-center
-      p.subtitle = "Startups para <b>#{params[:tag]}</b>".html_safe
-    .boxes-area
+  .boxes-area
+    - if @startups.present?
+      .text-center
+        p.subtitle = "Startups em <b>#{params[:tag]}</b>".html_safe
       - @startups.each do |startup|
         = render partial: 'startups/startup_box', locals: {startup: startup}
-    .clearfix
-    .text-center
-      = link_to "OUTRAS STARTUPS", startups_path, class: 'btn default-btn fade'
-    br/
+      .clearfix
+      .text-center
+        = link_to "OUTRAS STARTUPS", startups_path, class: 'btn default-btn fade'
+      br/
 
-  - elsif @markets.present?
-    .text-center
-      p.subtitle Mercados
-      .tag-cloud
-        - @markets.each do |f|
-          span.label.label-default.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-    br/
+    - elsif @markets.present?
+      .text-center
+        p.subtitle Mercados
+        .tag-cloud
+          - @markets.each do |f|
+            span.label.label-default.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+      br/
+
+= render partial: 'layouts/newsletter'
