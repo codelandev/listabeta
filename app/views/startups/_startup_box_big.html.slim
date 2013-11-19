@@ -5,4 +5,6 @@
         = image_tag startup.screenshot_url, width: 730, height: 420
     .description
       = link_to startup.name, startup_path(startup), class: 'title'
-      p = truncate(startup.pitch, length: 135)
+      p 
+        i = truncate(startup.pitch, length: 160)
+      p = truncate(startup.description, length: 400)
