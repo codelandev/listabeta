@@ -58,6 +58,9 @@ ActiveAdmin.register Startup do
 
   index do
     column :id
+    column :status do |startup|
+      status_tag(Status.t(startup.status))
+    end
     column :name
     column :website
     column :email
