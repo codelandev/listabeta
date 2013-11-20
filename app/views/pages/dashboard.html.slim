@@ -13,31 +13,32 @@
       h3 Você ainda não recebeu nenhum feedback. 
       p = "Enquanto isso, que tal publicar ou ler algumas notícias no #{link_to 'STARTUPNEWS', 'http://www.startupnews.com.br', target: 'blank'} ein?".html_safe
   - else
-    hr
+    br
+    br
     .container
       .col-md-4.col-sm-4.text-center
-        .col-md-6.col-sm-6
-          h1 = @feedbacks_total
-        .col-md-6.col-sm-6
-          h5 Total de feedbacks enviados pelos usuários que já testaram sua plataforma
+        .feedback-counter
+          = @feedbacks_total
+        .feed-detail TOTAL DE FEEDBACKS
       
       .col-md-8.col-sm-8
         = line_chart @count_last_seven_days_for
-    hr
+      br
+      br
     .container
       .col-md-12.col-sm-12.text-center
-        .col-md-6.col-sm-6
-          h1 = t('activerecord.attributes.questionnaire.a2')
-          = pie_chart @a2
-        .col-md-6.col-sm-6
-          h1 = t('activerecord.attributes.questionnaire.a3')
-          = pie_chart @a3
-        .col-md-6.col-sm-6
-          h1 = t('activerecord.attributes.questionnaire.a4')
-          = pie_chart @a4
-        .col-md-6.col-sm-6
-          h1 = t('activerecord.attributes.questionnaire.a5')
-          = pie_chart @a5
+        .col-md-3.col-sm-3
+          h4 = t('activerecord.attributes.questionnaire.a2')
+          = pie_chart @a2, height: "150px"
+        .col-md-3.col-sm-3
+          h4 = t('activerecord.attributes.questionnaire.a3')
+          = pie_chart @a3, height: "150px"
+        .col-md-3.col-sm-3
+          h4 = t('activerecord.attributes.questionnaire.a4')
+          = pie_chart @a4, height: "190px"
+        .col-md-3.col-sm-3
+          h4 = t('activerecord.attributes.questionnaire.a5')
+          = pie_chart @a5, height: "150px"
 
     hr
     .container
