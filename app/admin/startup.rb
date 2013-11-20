@@ -2,6 +2,11 @@ ActiveAdmin.register Startup do
   controller do
     private
 
+    def permitted_params
+      params.permit(startup: [:email, :name, :website, :pitch, :description,
+                              :screenshot, :status, :state, :city, :market_list])
+    end
+
     def resource
       @startup ||= Startup.friendly.find(params[:id])
     end
