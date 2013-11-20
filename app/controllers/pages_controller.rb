@@ -2,15 +2,16 @@ class PagesController < ApplicationController
   before_action :authenticate_startup!, only:[:dashboard]
   
   def home
+    @all_markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets).order(:name).limit(20)
     @highlighteds = Startup.highlighteds
     @unhighlighteds = Startup.unhighlighteds
   end
 
   def markets
     if params[:tag]
-      @startups = Startup.tagged_with(params[:tag].gsub('-',' '), on: :markets)
+      @startups = Startup.where(status: Status::APPROVED).tagged_with(params[:tag].gsub('-',' '), on: :markets)
     else
-      @markets = Startup.tag_counts_on(:markets)
+      @markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets).order(:name)
     end
   end
 

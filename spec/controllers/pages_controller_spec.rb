@@ -11,7 +11,7 @@ describe PagesController do
 
     describe "GET markets" do
       before do
-        @startup ||= Startup.make!
+        @startup ||= Startup.make!(status: Status::APPROVED)
       end
 
       it "and not assign startup when pass no :tag" do
@@ -52,7 +52,7 @@ describe PagesController do
 
     describe "GET markets" do
       before do
-        @startup ||= Startup.make!
+        @startup ||= Startup.make!(status: Status::APPROVED)
       end
 
       it "and not assign startup when pass no :tag" do
