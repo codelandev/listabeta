@@ -36,3 +36,8 @@ pt-BR:
       pendent: Pendente
       approved: Aprovada
       unapproved: Desaprovada
+
+  devise:
+    registrations:
+      startup:
+        sign_up: Sua Startup foi cadastrada com sucesso e será avalida!
