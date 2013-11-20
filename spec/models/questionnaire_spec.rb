@@ -8,7 +8,6 @@ describe Questionnaire do
     it { should validate_presence_of :a3 }
     it { should validate_presence_of :a4 }
     it { should validate_presence_of :a5 }
-    it { should validate_presence_of :opinion }
   end
 
   describe "Relations" do

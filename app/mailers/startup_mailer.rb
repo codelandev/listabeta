@@ -1,5 +1,5 @@
 class StartupMailer < ActionMailer::Base
-  default from: "no-reply@listabeta.com.br"
+  default from: "noreply@listabeta.com.br"
 
   def notify_approvation(startup)
     @startup = startup
