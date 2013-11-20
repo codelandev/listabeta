@@ -1,4 +1,8 @@
 class StartupsController < InheritedResources::Base
+  def index
+    @startups = Startup.approvateds
+  end
+
   private
 
   def resource
