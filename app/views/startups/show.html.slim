@@ -33,6 +33,6 @@
               = link_to "Facebook", "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank"
             li
               = link_to "Twitter", "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(resource.name, length: 30, omission: '...')}%20-&via=LISTABETAbr", target: "_blank"
-        = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(current_startup), target: "_self", class: 'btn default-btn fade feedback'
+        = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(resource), target: "_self", class: 'btn default-btn fade feedback'
 
 = render partial: 'layouts/newsletter'
