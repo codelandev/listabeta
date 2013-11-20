@@ -82,7 +82,9 @@ ActiveAdmin.register Startup do
       row :pitch
       row :description
       row :email
-      row :twitter
+      row :twitter do |startup|
+        link_to startup.twitter, startup.twitter, target: 'blank'
+      end
       row :state
       row :city
       row :markets do |startup|
