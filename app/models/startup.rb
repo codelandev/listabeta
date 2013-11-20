@@ -21,10 +21,10 @@ class Startup < ActiveRecord::Base
             presence: true
   validates :website, url: true
 
-  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED).order(:created_at) }
-  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED).order(:created_at) }
-  scope :approvateds, -> { where(status: Status::APPROVED).order(:created_at) }
-  scope :unapprovateds, -> { where(status: Status::UNAPPROVED).order(:created_at) }
+  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED).order('created_at DESC') }
+  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED).order('created_at DESC') }
+  scope :approvateds, -> { where(status: Status::APPROVED).order('created_at DESC') }
+  scope :unapprovateds, -> { where(status: Status::UNAPPROVED).order('created_at DESC') }
 
   def highlight!
     update_column(:highlighted, true) and save
