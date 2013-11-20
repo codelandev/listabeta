@@ -19,7 +19,7 @@ describe StartupMailer do
 
     # ensure that the subject is correct
     it "renders the subject" do
-      mail.subject.should == "Sua Startup está na Lista Beta!"
+      mail.subject.should == "Aprovação no LISTABETA"
     end
 
     # ensure that body is correct
@@ -43,7 +43,7 @@ describe StartupMailer do
 
     # ensure that the subject is correct
     it "renders the subject" do
-      mail.subject.should == "Sua Startup foi reprovada na Lista Beta!"
+      mail.subject.should == "Reprovação na LISTABETA!"
     end
 
     # ensure that body is correct
