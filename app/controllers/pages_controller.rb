@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @all_markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets).order(:name).limit(20)
     @highlighteds = Startup.highlighteds
-    @unhighlighteds = Startup.unhighlighteds
+    @unhighlighteds = Startup.unhighlighteds.limit(6)
   end
 
   def markets
