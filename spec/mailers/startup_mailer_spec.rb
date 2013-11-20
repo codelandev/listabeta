@@ -14,7 +14,7 @@ describe StartupMailer do
 
     # ensure that the sender is correct
     it "renders the sender email" do
-      mail.from.should == ["no-reply@listabeta.com.br"]
+      mail.from.should == ["noreply@listabeta.com.br"]
     end
 
     # ensure that the subject is correct
@@ -38,7 +38,7 @@ describe StartupMailer do
 
     # ensure that the sender is correct
     it "renders the sender email" do
-      mail.from.should == ["no-reply@listabeta.com.br"]
+      mail.from.should == ["noreply@listabeta.com.br"]
     end
 
     # ensure that the subject is correct
