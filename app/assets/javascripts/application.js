@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap/tab
+//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/transition
+//= require twitter/bootstrap/dropdown
 //= require ./listabeta/listabeta
 //= require_tree ./lib
 //= require_tree ./listabeta

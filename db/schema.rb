@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105144254) do
+ActiveRecord::Schema.define(version: 20131118182004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,33 @@ ActiveRecord::Schema.define(version: 20131105144254) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "questionnaires", force: true do |t|
+    t.integer  "startup_id"
+    t.string   "email"
+    t.text     "a1"
+    t.integer  "a2"
+    t.integer  "a3"
+    t.integer  "a4"
+    t.integer  "a5"
+    t.text     "opinion"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "startups", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -59,7 +86,6 @@ ActiveRecord::Schema.define(version: 20131105144254) do
     t.string   "website",                default: "",    null: false
     t.string   "twitter",                default: "",    null: false
     t.string   "markets",                default: "",    null: false
-    t.integer  "status",                 default: 0,     null: false
     t.text     "description",            default: "",    null: false
     t.string   "screenshot",             default: "",    null: false
     t.string   "reset_password_token"
@@ -73,10 +99,30 @@ ActiveRecord::Schema.define(version: 20131105144254) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "highlighted",            default: false
-    t.boolean  "approved"
+    t.string   "slug"
+    t.integer  "phase",                  default: 1,     null: false
+    t.integer  "status",                 default: 1,     null: false
   end
 
   add_index "startups", ["email"], name: "index_startups_on_email", unique: true, using: :btree
   add_index "startups", ["reset_password_token"], name: "index_startups_on_reset_password_token", unique: true, using: :btree
+  add_index "startups", ["slug"], name: "index_startups_on_slug", unique: true, using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string "name"
+  end
 
 end

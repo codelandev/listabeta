@@ -1,0 +1,41 @@
+pt-BR:
+  activerecord:
+    models:
+      questionnaire:
+        one: Questionário
+        other: Questionários
+
+    attributes:
+      questionnaire:
+        email: Seu email
+        a1: Escreva o que você compreendeu sobre o que se trata o serviço ou produto
+        a2: Você se considera público alvo desta startup?
+        a3: A proposta da Startup resolve um problema real?
+        a4: Você usaria esta solução?
+        a5: Quanto você pagaria para usar este produto/serviço?
+        opinion: 'Deixe aqui suas opiniões, criticas e sugestões para esta Startup.'
+
+  enumerations:
+    a2:
+      y: Sim
+      n: Não
+    a3:
+      y: Sim
+      n: Não
+    a4:
+      y: Sim
+      n: Não
+    a5:
+      range1: Não pagaria
+      range2: 5 à 10 reais
+      range3: 11 à 20 reais
+      range4: 21 à 40 reais
+      range5: 41 à 60 reais
+      range6: 61 à 100 reais
+      range7: Mais que 100 reais
+
+  flash:
+    questionnaires:
+      unauthorized_access: Você não tem permissão para ver este formulário
+      send_success: Feedback enviado com sucesso!
+      failed: 'Erro nas informações, preencha novamente'

@@ -1,0 +1,23 @@
+- set_meta_tags :site => "Lista Beta | Mercados", :keywords => 'Startups, Lista, Beta, Lista Beta, Mercados, Lista de Startups, Lançamentos de Startups', :og => { :description => 'Todas as Startups classificadas pelos principais tipos de mercados.', :title => "Lista Beta | Mercados", :image => "#{image_url('logo-azul.png')}", :url => request.url }
+
+.container
+  .boxes-area
+    - if @startups.present?
+      .text-center
+        p.subtitle = "Startups em <b>#{params[:tag]}</b>".html_safe
+      - @startups.each do |startup|
+        = render partial: 'startups/startup_box', locals: {startup: startup}
+      .clearfix
+      .text-center
+        = link_to "OUTRAS STARTUPS", startups_path, class: 'btn default-btn fade'
+      br/
+
+    - elsif @markets.present?
+      .text-center
+        p.subtitle Mercados
+        .tag-cloud
+          - @markets.each do |f|
+            span.label.label-default.market-tag = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+      br/
+
+= render partial: 'layouts/newsletter'
