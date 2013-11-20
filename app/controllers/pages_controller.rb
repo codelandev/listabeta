@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     if params[:tag]
       @startups = Startup.where(status: Status::APPROVED).tagged_with(params[:tag].gsub('-',' '), on: :markets)
     else
-      @markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets)
+      @markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets).order(:name)
     end
   end
 
