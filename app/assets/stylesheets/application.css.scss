@@ -85,6 +85,10 @@ body{
   border:none;
   padding-bottom: 16px;
 }
+.default-btn:hover, .default-btn:focus{
+  background-color: #58b8ee !important;
+  color: white !important;
+}
 
 .fade {
   opacity: 1;
@@ -92,11 +96,6 @@ body{
   -moz-transition: background .25s ease-in-out;
   -webkit-transition: background .25s ease-in-out;
 }
-
-// .fade:hover, .fade:focus{
-//   background-color: #58b8ee !important;
-//   color: white !important;
-// }
 
 .fade:active{
   color: white;
