@@ -1,0 +1,30 @@
+.banner{
+  background-color: #4aa3df;
+  padding: 42px 0px 42px 0px;
+  color: white;
+  h1, h2, h3, h4, h5, h6 { color: white; margin-top: 0px; }
+  h1{ font-weight: 600; }
+  .icons{
+    margin-top: 36px;
+  }
+}
+
+.label-default{
+  background-color: #4aa3df;
+  text-transform: uppercase;
+  font-size: 10px !important;
+  padding: 6px 10px;
+  font-weight: 100;
+  margin-top: 8px;
+  display: inline-block;
+  a{
+    color: white;
+    font-size:10px;
+  }
+}
+
+.tag-cloud{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}

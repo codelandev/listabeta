@@ -10,17 +10,26 @@
  *
  *= require_self
  *= require_tree ./app
+ *= require bootstrap_override
  */
 
 @import "twitter/bootstrap";
 
-h1, h2, h3, h4, h5, h6{ font-weight: 200; color: #333 }
+h1, h2, h3, h4, h5, h6{ font-weight: 200; color: #333; font-family: 'Open Sans', sans-serif; }
+
+.subtitle{
+  font-weight: 200;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  margin-top: 52px;
+  margin-bottom: 30px;
+}
 
 .sub-header{
   color: #666;
   font-size: 12pt;
   font-weight: 200;
-  width: 740px;
   margin: 24px auto;
   line-height: 20px;
   line-height: 26px;
@@ -34,22 +43,30 @@ h1, h2, h3, h4, h5, h6{ font-weight: 200; color: #333 }
 }
 
 body{
-  background-color: #4aa3df;
+  padding-top: 70px;
   font-family: 'Open Sans', sans-serif;
+  a{
+    color: #4aa3df;
+    font-weight: 200;
+  }
 }
-
- .center{
-   text-align: center;
- }
 
  .logo{
    padding: 30px 0 0 0;
  }
 
+.center{
+  text-align: center;
+  margin: auto;
+}
+
 .full-color-background{
   width: 100%;
   padding: 25px 0 40px 0;
   background-color: white;
+}
+.btn{
+  font-size:13px;
 }
 
 .default-btn{
@@ -69,6 +86,12 @@ body{
 
 .default-btn:active{
   color: white;
+  border:none;
+  padding-bottom: 16px;
+}
+.default-btn:hover, .default-btn:focus{
+  background-color: #58b8ee !important;
+  color: white !important;
 }
 
 .fade {
@@ -78,31 +101,76 @@ body{
   -webkit-transition: background .25s ease-in-out;
 }
 
-.fade:hover {
-  background-color: #58b8ee;
+.fade:active{
   color: white;
 }
 
-.fade:active{
-  color: white;
+
+.menu-fade {
+  opacity: 1;
+  transition: background .13s ease-in-out;
+  -moz-transition: background .13s ease-in-out;
+  -webkit-transition: background .13s ease-in-out;
+}
+
+.menu-fade:hover {
+  background-color: #4aa3df;
+  color: #FFF;
+}
+
+.menu-fade:active{
+  color: #FFF;
+}
+.caret {
+  margin-left: 7px !important;
+  margin-right: -5px !important;
+  border-top: 4px solid #FFF !important;
+}
+.dropdown-menu {
+  background-color: #4aa3df;
+  min-width:150px;
+  li{
+    text-align:left !important;
+    a {
+      color: #fff !important;
+      padding: 10px 20px;
+    }
+    a:hover {
+      background-color: #1175B8;
+    }
+  }
 }
 
 .newsletter{
   background-color: #f2f2f2;
   padding-top: 30px;
   padding-bottom: 56px;
-  input{
-    width: 310px;
-    height: 47px;
-    border: none;
+  margin: 60px 0 0 0;
+  @media (min-width: 490px){
+    input{
+      width: 310px;
+      height: 47px;
+      border: none;
+    }
+  }
+  @media (max-width: 489px){
+    input{
+      width: 100%;
+      height: 47px;
+      border: none;
+    }
   }
 }
 
 
 .well{
-  background-color: white;
-  margin-top: 30px;
+  background-color: rgb(247, 247, 247);
+  margin-top: 60px;
+  margin-bottom: 80px;
   padding: 20px 40px 40px 40px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .register{
@@ -131,19 +199,6 @@ body{
   color: white;
 }
 
-.how-it-works-text{
-  margin-top: 30px;
-}
-
-.how-it-works-video{
-  margin: 50px auto 0 auto;
-}
-
-.how-it-works-icons{
-  margin-top: 50px;
-  margin-bottom: 40px;
-}
-
 /* startup registration */
 .bullets {
   margin: 10px 0 0 0;
@@ -156,4 +211,23 @@ body{
     margin: 0 0 0 24px;
     line-height: 1.4;
   }
+}
+
+.market-tag{
+  margin-right: 10px;
+}
+
+/* Promo-Header */
+.icon-header {
+  font-size: 12px;
+  margin: 20px 0 0 0;
+  font-weight:400;
+  img{
+    margin: 0 0 10px 0;
+  }
+}
+
+.centered{
+  width: 100%;
+  margin-left: 7%;
 }

@@ -26,7 +26,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'slim-rails', '~> 2.0.3'
 
 # Twitter bootstrap
-gem 'bootstrap-sass-rails', '~> 3.0.0.3'
+gem 'bootstrap-sass-rails', '~> 3.0.2.1'
 
 # Simple form for form wrappers
 gem 'simple_form'
@@ -56,6 +56,21 @@ gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+# To work with tags, like markets field onside Startup Model
+gem 'acts-as-taggable-on'
+
+# To work with friendly-id on Startups show page
+gem 'friendly_id', '~> 5.0.0'
+
+# For group records by all kind of dates
+gem 'groupdate'
+
+# Charts API
+gem 'chartkick'
+
+# For elegant meta_tags
+gem 'meta-tags', :require => 'meta_tags'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

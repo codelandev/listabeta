@@ -1,52 +1,50 @@
-.well.col-md-6.col-md-offset-3
-  h1.text-center Cadastro de Startup
-  br/
-  .bullets
-    icon.glyphicon.glyphicon-ok 
-    h4 O produto não pode estar disponível para o público
-  .bullets
-    icon.glyphicon.glyphicon-ok 
-    h4 O site deve ter um design próprio e ser desenvolvido pela equipe
-  .bullets
-    icon.glyphicon.glyphicon-ok 
-    h4 A startup não pode ter sido publicada anteriormente na Lista Beta
-  .bullets
-    icon.glyphicon.glyphicon-ok 
-    h4 Os visitantes devem ser capazes de se cadastrar na lista de email para serem notificados sobre o lançamento
-  br/
-  br/
+.container
+  .well.col-md-8.col-md-offset-2
+    h1.text-center Envie sua Startup
+    br/
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 O produto não pode estar disponível para o público ou deve estar em beta
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 A startup não pode ter sido publicada anteriormente na LISTABETA
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 Os visitantes devem ser capazes de se cadastrar na lista de email para serem notificados sobre o lançamento
+    br/
+    br/
 
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
-    .register
-      = f.error_notification
-
-      .form-group
-        = f.input :email, :required => true, class: 'form-control'
-      .form-group
-        = f.input :name, :required => true, class: 'form-control'
-      .form-group
-        = f.input :website, :required => true, class: 'form-control', hint: 'Ex: http://www.seusite.com.br'
-      .form-group
-        = f.input :screenshot, :required => true, class: 'form-control', hint: 'Escolha uma screenshot de seu website'
-      .form-group
-        = f.input :pitch, :required => true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
-      .form-group
-        = f.input :description, :required => true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
-      .form-group
-        = f.select :status, Status.to_a, :required => true, class: 'form-control'
-      .form-group
-        = f.input :state, :required => true, class: 'form-control'
-      .form-group
-        = f.input :city, :required => true, class: 'form-control'
-      .form-group
-        = f.input :markets, :required => true, class: 'form-control', hint: 'Ex: Programadores, Designers, Empreendedores'
-      hr
-      .form-group
-        = f.input :password, :required => true, class: 'form-control'
-      .form-group
-        = f.input :password_confirmation, :required => true, class: 'form-control'
-    .text-center
-      = f.button :submit, "Mostrar minha startup ao mundo", class: 'btn default-btn fade'
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
+      .register
+        .form-group
+          = f.input :email, :required => true, class: 'form-control'
+        .form-group
+          = f.input :name, :required => true, class: 'form-control'
+        .form-group
+          = f.input :website, :required => true, class: 'form-control', hint: 'Ex: http://www.seusite.com.br'
+        .form-group
+          = f.input :screenshot, :required => true, class: 'form-control', hint: 'Escolha uma screenshot de seu website'
+        .form-group
+          = f.input :pitch, :required => true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
+        .form-group
+          = f.input :description, :required => true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
+        .form-group
+          = f.label :phase
+          br/
+          = f.select :phase, Phase.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.input :state, :required => true, class: 'form-control'
+        .form-group
+          = f.input :city, :required => true, class: 'form-control'
+        .form-group
+          = f.input :market_list, :required => true, class: 'form-control', hint: 'Ex: Saúde, Educação, Mobile'
+        hr
+        .form-group
+          = f.input :password, :required => true, class: 'form-control'
+        .form-group
+          = f.input :password_confirmation, :required => true, class: 'form-control'
+      .text-center
+        = f.button :submit, "Enviar minha Startup", class: 'btn default-btn fade'
 
 javascript:
   $(function() {

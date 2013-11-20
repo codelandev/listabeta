@@ -1,0 +1,27 @@
+.menu-wrapper{
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #b7d5ea;
+  padding-bottom: 60px;
+
+  .logo{
+    padding: 15px 32px 15px 0px;
+  }
+  .logo, .menu-item{
+    float: left;
+    border-right: 1px solid #b7d5ea;
+  }
+  .menu-item, .last-menu-item{
+    padding: 25px 36px;
+  }
+  .last-menu-item{
+    border-left: 1px solid #b7d5ea;
+  }
+  .menu-button{
+    padding: 11px 20px;
+    float: left;
+    border-right: 1px solid #b7d5ea;
+  }
+}

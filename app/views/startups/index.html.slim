@@ -1,0 +1,12 @@
+- set_meta_tags :site => "Lista Beta | Startups", :keywords => 'Todas as Startups, Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups', :og => { :description => 'Fiquei por dentro dos últimos lançamentos de Startups', :title => "Lista Beta | Startups", :image => "#{image_url('logo-azul.png')}", :url =>request.url }
+
+.container
+  .boxes-area
+    .text-center
+      p.show-title Startups
+      p.show-pitch Confira as últimas Startups lançadas
+    - @startups.each do |startup|
+      = render partial: 'startups/startup_box', locals: {startup: startup}
+
+
+= render partial: 'layouts/newsletter'

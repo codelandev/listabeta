@@ -1,28 +1,48 @@
+- set_meta_tags :site => "Lista Beta", :keywords => 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "Lista Beta", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
+.banner
+  .container
+    .text-center
+      h1 Se você não pode ser encontrado, você não existe
+      h3 Tenha acesso exclusivo as mais novas startups brasileiras
+      .col-md-8.col-md-offset-3
+        .col-md-3.icon-header
+          = image_tag 'icon-envie.png', title: 'Envie sua Startup'
+          br/
+          | ENVIE SUA STARTUP
+        .col-md-3.icon-header
+          = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
+          br/
+          | EARLY ADOPTERS RECEBEM POR EMAIL
+        .col-md-3.icon-header
+          = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
+          br/
+          | GANHE USUÁRIOS E FEEDBACK
+
 .container
-  .logo
+  .text-center
+    p.subtitle Novas Startups
+  .boxes-area
+    - @unhighlighteds.each do |startup|
+      = render partial: 'startups/startup_box', locals: {startup: startup}
     .text-center
-      = image_tag 'logo.png'
-  .how-it-works-text.text-center
-    .text-center
-      = image_tag 'header-text.png'
-  .how-it-works-video.text-center
-      iframe allowfullscreen="" frameborder="0" height="385" mozallowfullscreen="" src="//player.vimeo.com/video/78820147?color=ffd600?hd=on" webkitallowfullscreen="" width="685"
+      .clearfix
+      = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
 
-  .how-it-works-icons.text-center
     .text-center
-      = image_tag 'header-icons.png'
+      p.subtitle Mercados em Destaque
+      .tag-cloud.text-center
+        - @all_markets.each do |f|
+          span.label.label-default.market-tag
+            = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+      
+      = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
 
-.full-color-background
-  .container
-    .text-center
-      h2 Apresente sua Startup no Lista Beta
-      p.sub-header Construir um produto relevante e atingir seu público pode ser uma tarefa muito difícil. A Lista Beta lhe ajuda a divulgar sua startup e a atrair early adopters que irão fornecer o feedback que você precisa.
-      = link_to new_startup_registration_path do
-        button.default-btn.default-btn-big.fade Mostre sua startup ao mundo*
-      p.explanation-text #{"* sua startup só será exibida na data de lançamento (20/11)"}
-.newsletter
-  .container
-    .text-center
-      h2 Não perca a próxima grande startup
-      p.sub-header Receba em seu e-mail as últimas startups brasileiras.
-      = render partial: 'layouts/mailchimp'
+
+  .text-center
+    p.subtitle Startups em Destaque
+  .boxes-area
+    .centered
+      - @highlighteds.each do |startup|
+        = render partial: 'startups/startup_box_big', locals: {startup: startup}
+
+= render partial: 'layouts/newsletter'
