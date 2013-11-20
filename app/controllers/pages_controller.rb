@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     set_meta_tags noindex: true, nofollow: true
 
     @feedbacks_total = Questionnaire.total_for(current_startup)
-    @all_questionnaires = Questionnaire.where(startup: current_startup)
+    @all_questionnaires = Questionnaire.where(startup: current_startup).order('created_at DESC')
     @count_last_seven_days_for = Questionnaire.where(startup: current_startup).group_by_day(:created_at).limit(7).count
     @a2 = Hash[Questionnaire.where(startup: current_startup).group('a2').count.map { |key, value| [A2::t(key), value] }]
     @a3 = Hash[Questionnaire.where(startup: current_startup).group('a3').count.map { |key, value| [A3::t(key), value] }]
