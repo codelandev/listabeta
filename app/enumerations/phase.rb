@@ -3,6 +3,5 @@ class Phase < EnumerateIt::Base
     :in_development => 1,
     :private_beta => 2,
     :public_beta => 3,
-    :online => 4
   )
 end
