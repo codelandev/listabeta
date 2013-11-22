@@ -40,4 +40,4 @@ pt-BR:
   devise:
     registrations:
       startup:
-        sign_up: Sua Startup foi cadastrada com sucesso e será avalida!
+        sign_up: Sua Startup foi cadastrada com sucesso e será avaliada!
