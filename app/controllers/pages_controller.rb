@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   before_action :authenticate_startup!, only:[:dashboard]
-  
+
   def home
     @all_markets = Startup.where(status: Status::APPROVED).tag_counts_on(:markets).order(:name).limit(20)
     @highlighteds = Startup.highlighteds
-    @unhighlighteds = Startup.unhighlighteds.limit(6)
+    @unhighlighteds = Startup.unhighlighteds.order_by_approves.limit(6)
   end
 
   def markets

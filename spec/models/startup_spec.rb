@@ -140,17 +140,44 @@ describe Startup do
     context "#approve!" do
       before do
         @startup_unapproved ||= Startup.make!
-        @startup_approved   ||= Startup.make!(status: Status::APPROVED)
+        @approved_datetime ||= DateTime.new(2013, 11, 20, 12, 00)
+        @startup_approved ||= Startup.make!(status: Status::APPROVED, approved_at: @approved_datetime)
       end
 
-      it "set when is unapproved" do
-        @startup_unapproved.approve!
-        expect(@startup_unapproved.status).to eql Status::APPROVED
+      context "startup is unapproved" do
+        before { @startup_unapproved.approve! }
+
+        it "change status to approved" do
+          expect(@startup_unapproved.reload.status).to eql(Status::APPROVED)
+        end
+
+        it "approved_at is not nil" do
+          expect(@startup_unapproved.reload.approved_at).to_not be_nil
+        end
+
+        it "approved_at is a Time" do
+          expect(@startup_unapproved.reload.approved_at).to be_a(Time)
+        end
       end
 
-      it "do nothing when already approved" do
-        @startup_approved.approve!
-        expect(@startup_approved.status).to eql Status::APPROVED
+      context "already approved" do
+        before { @startup_approved.approve! }
+
+        it "continues with approved status" do
+          expect(@startup_approved.reload.status).to eql(Status::APPROVED)
+        end
+
+        it "approved_at is not nil" do
+          expect(@startup_approved.reload.approved_at).to_not be_nil
+        end
+
+        it "approved_at is a Time" do
+          expect(@startup_approved.reload.approved_at).to be_a(Time)
+        end
+
+        it "approved_at is the old time" do
+          expect(@startup_approved.reload.approved_at).to eq(@approved_datetime)
+        end
       end
 
       it "send mail after approve!" do
@@ -161,18 +188,32 @@ describe Startup do
 
     context "#unapprove!" do
       before do
-        @startup_unapproved ||= Startup.make!
-        @startup_approved   ||= Startup.make!(status: Status::APPROVED)
+        @startup_unapproved ||= Startup.make!(status: Status::UNAPPROVED)
+        @startup_approved   ||= Startup.make!(status: Status::APPROVED, approved_at: DateTime.now)
       end
 
-      it "set when is approved" do
-        @startup_approved.unapprove!
-        expect(@startup_approved.status).to eql Status::UNAPPROVED
+      context "unnaproved startup" do
+        before { @startup_unapproved.unapprove! }
+
+        it "set when is approved" do
+          expect(@startup_unapproved.reload.status).to eql(Status::UNAPPROVED)
+        end
+
+        it "sets nil on approved_at" do
+          expect(@startup_unapproved.reload.approved_at).to be_nil
+        end
       end
 
-      it "do nothing when already unapproved" do
-        @startup_approved.unapprove!
-        expect(@startup_approved.status).to eql Status::UNAPPROVED
+      context "approved startup" do
+        before { @startup_approved.unapprove! }
+
+        it "do nothing when already unapproved" do
+          expect(@startup_approved.reload.status).to eql(Status::UNAPPROVED)
+        end
+
+        it "sets nil on approved_at" do
+          expect(@startup_approved.reload.approved_at).to be_nil
+        end
       end
     end
   end

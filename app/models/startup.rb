@@ -21,10 +21,11 @@ class Startup < ActiveRecord::Base
             presence: true
   validates :website, url: true
 
-  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED).order('updated_at DESC') }
-  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED).order('updated_at DESC') }
-  scope :approvateds, -> { where(status: Status::APPROVED).order('updated_at DESC') }
-  scope :unapprovateds, -> { where(status: Status::UNAPPROVED).order('updated_at DESC') }
+  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED) }
+  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED) }
+  scope :approvateds, -> { where(status: Status::APPROVED) }
+  scope :unapprovateds, -> { where(status: Status::UNAPPROVED) }
+  scope :order_by_approves, -> { order("approved_at DESC") }
 
   def highlight!
     update_column(:highlighted, true) and save
@@ -35,12 +36,15 @@ class Startup < ActiveRecord::Base
   end
 
   def approve!
-    update_column(:status, Status::APPROVED) and save
-    StartupMailer.notify_approvation(self).deliver
+    return if status.eql?(Status::APPROVED)
+    self.status = Status::APPROVED
+    self.approved_at = DateTime.now
+    StartupMailer.notify_approvation(self).deliver if save
   end
 
   def unapprove!
-    update_column(:status, Status::UNAPPROVED) and save
-    StartupMailer.notify_unapprovation(self).deliver
+    self.status = Status::UNAPPROVED
+    self.approved_at = nil
+    StartupMailer.notify_unapprovation(self).deliver if save
   end
 end
