@@ -4,7 +4,8 @@ ActiveAdmin.register Startup do
 
     def permitted_params
       params.permit(startup: [:email, :name, :website, :pitch, :description,
-                              :screenshot, :status, :state, :city, :market_list])
+                              :screenshot, :status, :state, :city, :market_list,
+                              :approved_at])
     end
 
     def resource
@@ -101,6 +102,7 @@ ActiveAdmin.register Startup do
       row :highlighted do |startup|
         status_tag(startup.highlighted? ? 'Sim' : 'Não')
       end
+      row :approved_at
     end
   end
 end
