@@ -1,4 +1,16 @@
 ActiveAdmin.register Startup do
+  scope 'Pendente' do |startups|
+    startups.where(:status => Status::PENDENT)
+  end
+
+  scope 'Aprovadas' do |startups|
+    startups.where(:status => Status::APPROVED)
+  end
+
+  scope 'Desaprovadas' do |startups|
+    startups.where(:status => Status::UNAPPROVED)
+  end
+
   controller do
     private
 
@@ -63,6 +75,7 @@ ActiveAdmin.register Startup do
   end
 
   index do
+    selectable_column
     column :id
     column :status do |startup|
       status_tag(Status.t(startup.status))
