@@ -1,6 +1,6 @@
 class StartupsController < InheritedResources::Base
   def index
-    @startups = Startup.approvateds
+    @startups = Startup.approvateds.order_by_approves
   end
 
   private
