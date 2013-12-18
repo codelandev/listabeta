@@ -7,7 +7,7 @@ class Questionnaire < ActiveRecord::Base
   has_enumeration_for :a5
 
   validates :startup_id, :a1, :a2, :a3, :a4, :a5, presence: true
-  validates :email, uniqueness: true, presence: true
+  validates :email, uniqueness: { scope: :startup_id }, presence: true
 
   scope :total_for, ->(current_startup) { where(startup: current_startup).count }
 
