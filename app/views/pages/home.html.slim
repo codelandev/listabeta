@@ -18,6 +18,8 @@
           br/
           | GANHE USUÁRIOS E FEEDBACK
 
+= render partial: 'layouts/newsletter'
+
 .container
   .text-center
     p.subtitle Novas Startups
@@ -45,4 +47,4 @@
       - @highlighteds.each do |startup|
         = render partial: 'startups/startup_box_big', locals: {startup: startup}
 
-= render partial: 'layouts/newsletter'
+
