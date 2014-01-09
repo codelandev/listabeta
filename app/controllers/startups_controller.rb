@@ -1,6 +1,6 @@
 class StartupsController < InheritedResources::Base
   def index
-    @startups = Startup.approvateds.order_by_approves.page(params[:page]).per(9)
+    @startups = Startup.approvateds.order_by_approves.page(params[:page]).per(15)
   end
 
   def show
