@@ -1,6 +1,14 @@
 class StartupsController < InheritedResources::Base
   def index
-    @startups = Startup.approvateds.order_by_approves.page(params[:page]).per(4)
+    @startups = Startup.approvateds.order_by_approves.page(params[:page]).per(9)
+  end
+
+  def show
+    if resource.status.eql?(2)
+      show!
+    else
+      redirect_to root_path, notice: 'Essa startup ainda não está disponível.'
+    end
   end
 
   private

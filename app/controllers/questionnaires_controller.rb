@@ -3,10 +3,14 @@ class QuestionnairesController < InheritedResources::Base
   belongs_to :startup, param: :startup_id
 
   def new
-    set_meta_tags noindex: true, nofollow: true
-    @questionnaire = Questionnaire.new
-    @startup = resource
-    new!
+    if resource.status.eql?(2)
+      set_meta_tags noindex: true, nofollow: true
+      @questionnaire = Questionnaire.new
+      @startup = resource
+      new!
+    else
+      redirect_to root_path, notice: 'Essa startup ainda não está disponível.'
+    end
   end
 
   def create
