@@ -279,6 +279,7 @@ DEPENDENCIES
   groupdate
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   letter_opener
   machinist (~> 2.0)
   meta-tags

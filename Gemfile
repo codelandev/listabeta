@@ -72,6 +72,9 @@ gem 'chartkick'
 # For elegant meta_tags
 gem 'meta-tags', :require => 'meta_tags'
 
+# For pagination
+gem 'kaminari'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -1,6 +1,7 @@
 .boxes-area{
   width: 80%;
   margin: auto;
+  margin-bottom: 30px;
 }
 
 .startup-box{
@@ -91,6 +92,24 @@
     p{
       color: #666;
       font-size: 16px;
+    }
+  }
+}
+
+.pagination {
+  display: inline-block;
+  margin-bottom: 40px;
+  .current {
+    color: #333;
+    font-weight: 600;
+  }
+  span{
+    a {
+      padding: 6px 12px;
+    }
+    a:hover {
+      text-decoration:none;
+      background-color: #f2f2f2;
     }
   }
 }
