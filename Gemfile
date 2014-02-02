@@ -8,7 +8,7 @@ gem 'rails', '4.0.1'
 gem 'rails-i18n', '~> 4.0.0'
 
 # Server
-gem 'thin', '~> 1.6.1'
+gem 'passenger', '~> 4.0.37'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.17.0'
