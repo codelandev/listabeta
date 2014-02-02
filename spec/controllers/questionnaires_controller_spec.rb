@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe QuestionnairesController do
-  context "When logged in" do  
-    let(:startup) { Startup.make! }
+  context "When logged in" do
+    let(:startup) { Startup.make!(status: Status::APPROVED) }
     let(:questionnaire) { Questionnaire.make!(startup: startup) }
     let(:questionnaire_with_different_id) { Questionnaire.make! }
 
@@ -26,7 +26,7 @@ describe QuestionnairesController do
       "a5" => A5::RANGE1,
       "opinion" => "text"
     } }
-    
+
     before do
       sign_in startup
     end
