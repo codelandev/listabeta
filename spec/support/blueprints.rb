@@ -38,3 +38,7 @@ Questionnaire.blueprint do
   a5 { A5::RANGE1 }
   opinion { "text" }
 end
+
+StartupPackSubscriber.blueprint do
+  email { "subscriber_#{sn}@test.com" }
+end
