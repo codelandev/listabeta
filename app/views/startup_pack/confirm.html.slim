@@ -4,5 +4,7 @@ h3 User should put his e-mail here
 h2 Entre com seu e-mail:
 = form_tag dispatch_email_path, method: :post do |f|
   .form-group
-    = text_field_tag "subscriber[email]", nil, required: true
+    = text_field_tag "subscriber[email]", nil
+    = check_box_tag "subscriber[newsletter_subscription]", nil, required: true
+    label Aceito receber informações sobre novas startups Brasileiras
   = submit_tag "Enviar"

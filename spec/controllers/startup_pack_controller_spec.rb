@@ -20,6 +20,14 @@ describe StartupPackController do
         expect(response.status).to eql 200
       end
     end
+
+    describe "POST dispatch_email" do
+      it "creates a new subscription" do
+        post :dispatch_email, subscriber: { "email" => "test@test.com", "newsletter_subscription" => "on" }
+        subscriber = StartupPackSubscriber.last
+        subscriber.email.should eql("test@test.com")
+      end
+    end
   end
 
   context "User is not signed in" do

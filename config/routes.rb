@@ -9,8 +9,9 @@ Listabeta::Application.routes.draw do
   get 'dashboard' => 'pages#dashboard', as: :dashboard
   get 'pack' => 'startup_pack#pack', as: :pack
   get 'pack/confirm' => 'startup_pack#confirm', as: :confirmation
+  get 'pack/confirmed' => 'startup_pack#confirmed', as: :confirmed_pack
 
-  post 'pack/confirm/dispatch_email' => 'startup_pack#dispatch_email', as: :dispatch_email, method: :post
+  post 'pack/confirm/dispatch_email' => 'startup_pack#dispatch_email', as: :dispatch_email
   resources :startups do
     resources :questionnaires, only: [:new, :create]
   end
