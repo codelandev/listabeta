@@ -1,5 +1,16 @@
 require "spec_helper"
 
 describe StartupPackMailer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "offers_email" do
+
+    let(:mail) { StartupPackMailer.offers_email("test@test.com") }
+
+    it "sends the email to the received address" do
+      mail.to.should.eql?("test@test.com")
+    end
+
+    it "renders the sender email" do
+      mail.from.should.eql?("contato@listabeta.com.br")
+    end
+  end
 end
