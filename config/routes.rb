@@ -4,9 +4,11 @@ Listabeta::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'pages#home'
-  
+
   get 'mercados/(:tag)' => 'pages#markets', as: :markets
   get 'dashboard' => 'pages#dashboard', as: :dashboard
+  get 'pack' => 'startup_pack#pack', as: :pack
+  get 'pack/confirm' => 'startup_pack#confirm', as: :confirmation
 
   resources :startups do
     resources :questionnaires, only: [:new, :create]
