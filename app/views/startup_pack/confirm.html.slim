@@ -1,10 +1,27 @@
-h1 This is the confirmation page
-h3 User should put his e-mail here
+/h1 This is the confirmation page
+/h3 User should put his e-mail here
 
-h2 Entre com seu e-mail:
-= form_tag dispatch_email_path, method: :post do |f|
+/h2 Entre com seu e-mail:
+/= form_tag dispatch_email_path, method: :post do |f|
   .form-group
     = text_field_tag "subscriber[email]", nil
     = check_box_tag "subscriber[newsletter_subscription]", nil, required: true
     label Aceito receber informações sobre novas startups Brasileiras
   = submit_tag "Enviar"
+
+.container
+  .well.col-md-6.col-md-offset-3
+    h1.text-center Receber o STARTUP PACK
+    = form_tag dispatch_email_path, method: :post do |f|
+      .register
+        .form-group
+          label * Entre com o seu e-mail
+          = text_field_tag "subscriber[email]", nil
+        .form-inline
+          .checkbox
+            = check_box_tag "subscriber[newsletter_subscription]", "yes", class: "pack-checkbox", required: true
+            label.pack-checkbox-label Aceito receber informações sobre novas startups Brasileiras
+
+      br/
+      .text-center
+        = submit_tag "Enviar os descontos para meu e-mail", class: 'btn default-btn fade'

@@ -18,7 +18,10 @@ html
     = display_meta_tags
   body
     = render partial: 'layouts/flash'
-    = render partial: 'layouts/header'
+    - if params[:controller].eql?('startup_pack')
+      = render partial: 'layouts/pack_header'
+    - else
+      = render partial: 'layouts/header'
     = yield
   footer
     = render partial: 'layouts/footer'
