@@ -1,10 +1,22 @@
 .container
-  .center
-    .boxes-area
-      .well
-        h2 Faça sua startup decolar com nosso pack de serviços exclusivos!
+  .pack-panel
+    .center
+      .pack-image
+        = image_tag 'pack-logos.png', height: 500, width: 400
+      .pack-success
+        h1 Faça sua startup decolar com nosso pacote de serviços exclusivos!
+        h4 O Startup Pack é um pacote de descontos em serviços e produtos escolhidos a dedo para que você consiga levar sua startup ao próximo nível.
+        h4 E tudo isso de graça! Apenas pedimos que você nos ajude a divulgar o Startup Pack com um tweet ou com um post no Facebook.
+        br/
         iframe src="http://www.paywithatweet.com/dlbutton03.php?id=d8abdeed-7b35-4c1f-bb27-b836f965285a" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
+        .clearfix
+        = link_to "Descubra os descontos do pacote", "#deals"
 
+
+
+
+#deals
+.container
   .boxes-area
     .col-md-4
       .startup-box
