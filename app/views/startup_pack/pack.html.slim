@@ -10,7 +10,7 @@
         br/
         iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
         .clearfix
-        = link_to "Descubra os descontos do pacote", "#deals"
+        a href="*" id="dealsBtn" Descubra os descontos do pacote
 
 
 
@@ -124,3 +124,6 @@
       .well
         h2 Tenha acesso aos descontos exclusivos do LISTABETA Startup Pack
         iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
+
+javascript:
+  $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld();});

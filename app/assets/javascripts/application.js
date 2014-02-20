@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require scrolld
 //= require twitter/bootstrap/tab
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/transition
