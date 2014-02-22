@@ -1,22 +1,22 @@
 - set_meta_tags :site => "LISTABETA", :keywords => 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups, LISTABETA', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "LISTABETA", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
 .banner
-  .container
-    .text-center
-      h1 Se você não pode ser encontrado, você não existe
-      h3 Tenha acesso exclusivo as mais novas startups brasileiras
-      .col-md-8.col-md-offset-3
-        .col-md-3.icon-header
-          = image_tag 'icon-envie.png', title: 'Envie sua Startup'
-          br/
-          | ENVIE SUA STARTUP
-        .col-md-3.icon-header
-          = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
-          br/
-          | EARLY ADOPTERS RECEBEM POR EMAIL
-        .col-md-3.icon-header
-          = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
-          br/
-          | GANHE USUÁRIOS E FEEDBACK
+  .container.text-center
+    h1 Se você não pode ser encontrado, você não existe
+    h3 Tenha acesso exclusivo as mais novas startups brasileiras
+    .col-md-8.col-sm-12.col-md-offset-3
+      .col-md-3.col-sm-4.icon-header
+        = image_tag 'icon-envie.png', title: 'Envie sua Startup'
+        br/
+        | ENVIE SUA STARTUP
+      .col-md-3.col-sm-4.icon-header
+        = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
+        br/
+        | EARLY ADOPTERS RECEBEM POR EMAIL
+      .col-md-3.col-sm-4.class_selector
+        icon-header
+        = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
+        br/
+        | GANHE USUÁRIOS E FEEDBACK
 
 = render partial: 'layouts/newsletter'
 
