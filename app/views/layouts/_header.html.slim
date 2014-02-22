@@ -24,6 +24,12 @@
 
 .pack-stripe
   .container
-    .center
-      .pack-call
-        p Leve sua startup para o próximo nível! #{link_to "Confira os descontos exclusivos do nosso Startup Pack", pack_path, class: 'pack-link'}.
+    ul.pack-call.text-center  
+      li 
+        p 
+          strong Startup Pack 
+          | descontos exclusvos para levar sua startup para o próximo nível!        
+      li 
+        = link_to pack_path do
+          button.btn.btn-bordered Confira
+      //#{link_to "Confira os descontos exclusivos do nosso Startup Pack", pack_path, class: 'pack-link'}
