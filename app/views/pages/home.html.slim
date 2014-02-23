@@ -21,31 +21,33 @@
 = render partial: 'layouts/newsletter'
 
 .container
-  .text-center
-    p.subtitle Novas Startups
-  .boxes-area
-    - @unhighlighteds.each do |startup|
-      = render partial: 'startups/startup_box', locals: {startup: startup}
+  .row-fluid
     .text-center
-      .clearfix
-      = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
+      p.subtitle Novas Startups
+    .col-md-10.col-sm-12.col-md-offset-1
+      - @unhighlighteds.each do |startup|
+        .col-md-4.col-sm-4
+          = render partial: 'startups/startup_box', locals: {startup: startup}
+      .text-center
+        .clearfix
+        = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
+
+      .text-center
+        p.subtitle Mercados em Destaque
+        .tag-cloud.text-center
+          - @all_markets.each do |f|
+            span.label.label-default.market-tag
+              = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+        
+        = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
+
 
     .text-center
-      p.subtitle Mercados em Destaque
-      .tag-cloud.text-center
-        - @all_markets.each do |f|
-          span.label.label-default.market-tag
-            = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-      
-      = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
-
-
-  .text-center
-    p.subtitle Startups em Destaque
-  .boxes-area
-    .centered
-      - @highlighteds.each do |startup|
-        = render partial: 'startups/startup_box_big', locals: {startup: startup}
+      p.subtitle Startups em Destaque
+    .boxes-area
+      .centered
+        - @highlighteds.each do |startup|
+          = render partial: 'startups/startup_box_big', locals: {startup: startup}
 
 = render partial: 'layouts/press'
 
