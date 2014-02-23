@@ -69,6 +69,27 @@ body{
   font-size:13px;
 }
 
+.newsletter {
+  .form-control {
+    width: 60%;
+    @media (max-width: 1200px) {
+      width: 50%;
+    }
+    @media (max-width: 991px) {
+      width: 60%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+  .btn {
+    @media (max-width: 767px) {
+      width: 100%;
+      margin: 8px 0 0 0;
+    }
+  }
+}
+
 .default-btn{
   padding: 12px 24px;
   background-color: #4aa3df;
