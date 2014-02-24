@@ -1,129 +1,128 @@
 .container
-  .pack-panel
-    .center
-      .pack-image
-        = image_tag 'pack-logos.png', height: 500, width: 400
-      .pack-success
-        h1 Faça sua startup decolar com nosso pacote de serviços exclusivos!
-        h4 O Startup Pack é um pacote de descontos em serviços e produtos escolhidos a dedo para que você consiga levar sua startup ao próximo nível.
-        h4 E tudo isso de graça! Apenas pedimos que você nos ajude a divulgar o Startup Pack com um tweet ou com um post no Facebook.
-        br/
-        iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
-        .clearfix
-        a href="*" id="dealsBtn" Descubra os descontos do pacote
+  .row-fluid
+    .pack-panel
+      .col-md-10.col-sm-12.col-md-offset-1
+        .col-md-6.col-sm-12.pack-image.text-center
+          = image_tag 'pack-logos.png'
+        .col-md-6.col-sm-12.pack-success.text-center
+          h1 Faça sua startup decolar com o Startup Pack!
+          h4 O pacote de descontos exclusivos em serviços para você levar a sua startup ao próximo nível.
+          p Pague com um tweet ou post no facebook e ajuda a divulgar para a comunidade.
+          br
+          iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
+          .clearfix
+          a href="*" id="dealsBtn" Descubra os descontos do pacote
 
-
-
-
-#deals style="margin-top: -100px;"
+#deals 
 .clearfix
 .container
-  .boxes-area
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://rockcontent.com/", target: "_blank" do
-            = image_tag 'logo-rockcontent.png'
-        .pack-description
-          .service-name
-            p RockContent
-          .service-discount
-            p 10% OFF
-          p A RockContent ajuda empresas a criar uma estratégia completa de marketing de conteúdo. Eles produzem conteúdo para sua empresa fidelizar clientes e vender mais!
+  .row-fluid
+    .col-md-10.col-sm-12.col-md-offset-1
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://rockcontent.com/", target: "_blank" do
+              = image_tag 'logo-rockcontent.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p RockContent
+            .service-discount
+              p 10% OFF
+            p A RockContent ajuda empresas a criar uma estratégia completa de marketing de conteúdo. Eles produzem conteúdo para sua empresa fidelizar clientes e vender mais!
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://www.contabilizei.com.br", target: "_blank" do
-            = image_tag 'logo-contabilizei.png'
-        .pack-description
-          .service-name
-            p Contabilizei
-          .service-discount
-            p 50% OFF
-          p O Contabilizei combina software inteligente com contadores fanáticos para oferecer contabilidade online a um preço justo. Fácil, econômica e online para micro e pequenas empresas.
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://www.contabilizei.com.br", target: "_blank" do
+              = image_tag 'logo-contabilizei.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p Contabilizei
+            .service-discount
+              p 50% OFF
+            p O Contabilizei combina software inteligente com contadores fanáticos para oferecer contabilidade online a um preço justo. Fácil, econômica e online para micro e pequenas empresas.
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://www.sabixao.com.br", target: "_blank" do
-            = image_tag 'logo-sabixao.png'
-        .pack-description
-          .service-name
-            p Sabixão
-          .service-discount
-            p 30% OFF
-          p Entre em um mundo onde todo o conhecimento é produzido por verdadeiros experts! O Sabixão oferece cursos pagos e gratuitos produzidos por grandes mentes ao redor do mundo.
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://www.sabixao.com.br", target: "_blank" do
+              = image_tag 'logo-sabixao.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p Sabixão
+            .service-discount
+              p 30% OFF
+            p Entre em um mundo onde todo o conhecimento é produzido por verdadeiros experts! O Sabixão oferece cursos pagos e gratuitos produzidos por grandes mentes ao redor do mundo.
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://getupcloud.com", target: "_blank" do
-            = image_tag 'logo-getupcloud.png'
-        .pack-description
-          .service-name
-            p GetUp Cloud
-          .service-discount.pull-right
-            p FREE
-          .clearfix
-          p Crie e publique aplicações web sem o custo e a complexidade de comprar e administrar servidores. É mais rápido e barato que subir servidores na Amazon!
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://getupcloud.com", target: "_blank" do
+              = image_tag 'logo-getupcloud.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p GetUp Cloud
+            .service-discount.pull-right
+              p FREE
+            .clearfix
+            p Crie e publique aplicações web sem o custo e a complexidade de comprar e administrar servidores. É mais rápido e barato que subir servidores na Amazon!
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://www.agenciazbra.com.br/", target: "_blank" do
-            = image_tag 'logo-zbra.png'
-        .pack-description
-          .service-name
-            p Zbra
-          .service-discount
-            p 10% OFF
-          .clearfix
-          p O nome da sua empresa é o primeiro ponto de contato com seu público. A Zbra é uma agência de branding especializada em inventar nomes de produtos e empresas que são provocativos e humanos.
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://www.agenciazbra.com.br/", target: "_blank" do
+              = image_tag 'logo-zbra.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p Zbra
+            .service-discount
+              p 10% OFF
+            .clearfix
+            p O nome da sua empresa é o primeiro ponto de contato com seu público. A Zbra é uma agência de branding especializada em inventar nomes de produtos e empresas que são provocativos e humanos.
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://vhsys.com.br", target: "_blank" do
-            = image_tag 'logo-vhsys.png'
-        .pack-description
-          .service-name
-            p VHSYS
-          .service-discount.pull-right
-            p FREE
-          .clearfix
-          p Sistema de gestão que possui ferramentas que oferecem garantia de qualidade e disponibilidade, possuindo uma grande variedade de recursos de auto ajuda, reduzindo a sua carga de trabalho.
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://vhsys.com.br", target: "_blank" do
+              = image_tag 'logo-vhsys.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p VHSYS
+            .service-discount.pull-right
+              p FREE
+            .clearfix
+            p Sistema de gestão que possui ferramentas que oferecem garantia de qualidade e disponibilidade, possuindo uma grande variedade de recursos de auto ajuda, reduzindo a sua carga de trabalho.
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://99designs.com.br", target: "_blank" do
-            = image_tag 'logo-99designs.png'
-        .pack-description
-          .service-name
-            p 99 designs
-          .service-discount
-            p 10% OFF
-          .clearfix
-          p Tenha um design que você vai amar! Garantido. Deixe que a comunidade de mais de 280 mil designers do 99 designs crie dezenas de opções para você.
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://99designs.com.br", target: "_blank" do
+              = image_tag 'logo-99designs.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p 99 designs
+            .service-discount
+              p 10% OFF
+            .clearfix
+            p Tenha um design que você vai amar! Garantido. Deixe que a comunidade de mais de 280 mil designers do 99 designs crie dezenas de opções para você.
 
-    .col-md-4
-      .startup-box
-        .image-area
-          = link_to "http://codeland.com.br", target: "_blank" do
-            = image_tag 'logo-codeland.png'
-        .pack-description
-          .service-name
-            p CODELAND
-          .service-discount
-            p 5% OFF
-          .clearfix
-          p A CODELAND é uma empresa de desenvolvimento ágil de aplicações para a web. Especializada em lançar startups, possui uma metodologia focada no sucesso de um novo produto digital.
-    .clearfix
-    .center
-      .well
-        h2 Tenha acesso aos descontos exclusivos do LISTABETA Startup Pack
-        iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
+      .col-md-4.col-sm-6
+        .startup-box
+          .image-area
+            = link_to "http://codeland.com.br", target: "_blank" do
+              = image_tag 'logo-codeland.png', class: 'img-responsive'
+          .pack-description
+            .service-name
+              p CODELAND
+            .service-discount
+              p 5% OFF
+            .clearfix
+            p A CODELAND é uma empresa de desenvolvimento ágil de aplicações para a web. Especializada em lançar startups, possui uma metodologia focada no sucesso de um novo produto digital.
+      .clearfix
+      .center
+        .well
+          h3 Tenha acesso aos descontos exclusivos do LISTABETA Startup Pack
+          iframe src="http://www.paywithatweet.com/dlbutton03.php?id=cd4f39b0-c9db-4b0a-ae5c-edfce07f84a9" name="paytweet_button" scrolling="no" frameborder="no" height="48px" width="292px"
 
 javascript:
   $("[id*='Btn']").stop(true).on('click',function(e){e.preventDefault();$(this).scrolld();});
