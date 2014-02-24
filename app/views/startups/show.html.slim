@@ -1,38 +1,42 @@
 - set_meta_tags :site => "LISTABETA | #{resource.name}", :keywords => resource.market_list.join(', '), :og => { :description => resource.pitch, :title => "LISTABETA| #{resource.name}", :image => resource.screenshot_url, :url => request.url }
 
-.container.show-page
-  .boxes-area
-    p.show-title.text-center = resource.name
-    p.show-pitch.text-center = resource.pitch
-    .img-startup
-      .img-startup-frame
-        .img-startup-bar
-          .col-md-1.col-sm-1
-            .img-startup-bar-circle.red
-            .img-startup-bar-circle.yellow
-            .img-startup-bar-circle.green
-          .col-md-10.col-sm-10.col-md-offset-1.col-sm-offset-2
-            .img-startup-bar-input
-        .img-startup-site
-          = image_tag resource.screenshot, width: '100%'
-      .cold-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2.text-center
-        - resource.tag_counts_on(:markets).each do |f|
-          span.label.label-default.market-tag
-            = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-    .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
-      .startup-pitch
-        = resource.description
-      .startup-btns.text-center
-        = link_to "VISITE O SITE", resource.website, target: "_blank", class: 'btn default-btn fade visit'
-        .btn-group
-          button.btn.dropdown-toggle.default-btn.fade.share type="button" data-toggle="dropdown"
-            | COMPARTILHE
-            span.caret
-          ul.dropdown-menu role="menu"
-            li
-              = link_to "Facebook", "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank"
-            li
-              = link_to "Twitter", "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(resource.name, length: 30, omission: '...')}%20-&via=LISTABETAbr", target: "_blank"
-        = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(resource), target: "_self", class: 'btn default-btn fade feedback'
+.show-page
+  .container
+    .row-fluid
+      .col-md-10.col-sm-12.col-md-offset-1
+        p.show-title.text-center = resource.name
+        p.show-pitch.text-center = resource.pitch
+        .img-startup
+          .img-startup-frame
+            .row-fluid
+              .img-startup-bar
+                .col-md-1.col-sm-1
+                  .img-startup-bar-circle.red
+                  .img-startup-bar-circle.yellow
+                  .img-startup-bar-circle.green
+                .col-md-10.col-sm-10.col-md-offset-1.col-sm-offset-1
+                  .img-startup-bar-input
+            .row-fluid
+              .img-startup-site
+                = image_tag resource.screenshot, width: "100%", class: 'img-responsive'
+          .cold-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2.text-center
+            - resource.tag_counts_on(:markets).each do |f|
+              span.label.label-default.market-tag
+                = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+        .col-md-8.col-sm-8.col-md-offset-2.col-sm-offset-2
+          .startup-pitch
+            = resource.description
+          .startup-btns.text-center
+            = link_to "VISITE O SITE", resource.website, target: "_blank", class: 'btn default-btn fade visit'
+            .btn-group
+              button.btn.dropdown-toggle.default-btn.fade.share type="button" data-toggle="dropdown"
+                | COMPARTILHE
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  = link_to "Facebook", "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank"
+                li
+                  = link_to "Twitter", "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(resource.name, length: 30, omission: '...')}%20-&via=LISTABETAbr", target: "_blank"
+            = link_to "DÊ O SEU FEEDBACK", new_startup_questionnaire_url(resource), target: "_self", class: 'btn default-btn fade feedback'
 
 = render partial: 'layouts/newsletter'
