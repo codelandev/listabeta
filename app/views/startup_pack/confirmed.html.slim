@@ -1,20 +1,21 @@
 .container
-  .pack-panel
-    .center
-      .pack-image
-        = image_tag 'pack-big.png', height: 400, width: 400
-      .pack-success
-        h1 Os descontos do Startup Pack foram enviados para o seu e-mail.
-        h4 Agora que tal compartilhar as vantagens para que mais pessoas possam usufruir dos descontos?
-        .social-buttons
-          .fb-share
-            div class="fb-share-button" data-href="http://www.listabeta.com.br/pack" data-type="button"
-          .twitter-share
-            a href="https://twitter.com/share?text=Acabei de receber o meu #startuppack! Tenha você também o pacote de descontos para #startups do @listabetabr! www.listabeta.com.br/pack"class="twitter-share-button" data-lang="en">Tweet</a>
-        .clearfix
-        br/
-        p Já conhece a LISTABETA?
-        = link_to "Descubra as mais novas startups brasileiras", startups_path, class: 'btn default-btn fade'
+  .row-fluid
+    .pack-panel
+      .col-md-10.col-sm-12.col-md-offset-1
+        .col-md-6.col-sm-12.pack-image.text-center
+          = image_tag 'pack-big.png', height: 400, width: 400
+        .col-md-6.col-sm-12.pack-success.text-center
+          h1 Os descontos do Startup Pack foram enviados para o seu e-mail.
+          h4 Agora que tal compartilhar as vantagens para que mais pessoas possam usufruir dos descontos?
+          .social-buttons
+            .fb-share
+              div class="fb-share-button" data-href="http://www.listabeta.com.br/pack" data-type="button"
+            .twitter-share
+              a href="https://twitter.com/share?text=Acabei de receber o meu #startuppack! Tenha você também o pacote de descontos para #startups do @listabetabr! www.listabeta.com.br/pack"class="twitter-share-button" data-lang="en">Tweet</a>
+          .clearfix
+          br/
+          p Já conhece a LISTABETA?
+          = link_to "Descubra as mais novas startups brasileiras", startups_path, class: 'btn default-btn fade'
 
 javascript:
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
