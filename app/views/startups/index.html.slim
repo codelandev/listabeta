@@ -1,12 +1,15 @@
 - set_meta_tags :site => "LISTABETA | Startups", :keywords => 'Todas as Startups, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', :og => { :description => 'Fique por dentro dos últimos lançamentos de Startups', :title => "LISTABETA | Startups", :image => "#{image_url('logo-azul.png')}", :url =>request.url }
 
 .container
-  .boxes-area
+  .row-fluid
     .text-center
       p.show-title Startups
-      p.show-pitch Confira as últimas Startups lançadas
-    - @startups.each do |startup|
-      = render partial: 'startups/startup_box', locals: {startup: startup}
+      p.show-pitch Confira as últimas startups lançadas
+    .col-md-10.col-sm-12.col-md-offset-1
+      - @startups.each do |startup|
+        .col-md-4.col-sm-4
+          = render partial: 'startups/startup_box', locals: {startup: startup}
+
 .text-center
   = paginate collection
 
