@@ -9,14 +9,14 @@ nav.navbar.navbar-default.navbar-fixed-top.menu-wrapper[role="navigation"]
       = link_to root_path do
         .logo
           = image_tag 'logo-azul.png', title: 'LISTABETA'
-   
+
     #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
           = link_to startups_path do
             .menu-item.menu-fade
               span STARTUPS
-        li      
+        li
           - if startup_signed_in?
             = link_to dashboard_path do
               .menu-item.menu-fade
@@ -37,12 +37,12 @@ nav.navbar.navbar-default.navbar-fixed-top.menu-wrapper[role="navigation"]
 
 .pack-stripe
   .container
-    ul.pack-call.text-center  
-      li 
-        p 
-          strong Startup Pack
-          | , descontos exclusivos para levar sua startup para o próximo nível!        
-      li 
+    ul.pack-call.text-center
+      li
+        p
+          strong Conheça o Startup Pack
+          | , descontos exclusivos para levar sua startup para o próximo nível!
+      li
         = link_to pack_path do
           button.btn.btn-bordered Confira
       //#{link_to "Confira os descontos exclusivos do nosso Startup Pack", pack_path, class: 'pack-link'}
