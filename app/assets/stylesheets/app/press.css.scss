@@ -9,4 +9,10 @@
   .sub-header {
     margin:0 0 10px 0;
   }
+  @media (max-width: 767px) {
+    text-align: center;
+    img {
+      margin: 10px 0;
+    }
+  }
 }
