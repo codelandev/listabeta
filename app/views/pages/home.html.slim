@@ -40,14 +40,14 @@
               = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
         
         = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
-
-
+      br
+      br
+      br
     .text-center
       p.subtitle Startups em Destaque
-    .boxes-area
-      .centered
-        - @highlighteds.each do |startup|
-          = render partial: 'startups/startup_box_big', locals: {startup: startup}
+    .col-md-8.col-sm-12.col-md-offset-2
+      - @highlighteds.each do |startup|
+        = render partial: 'startups/startup_box_big', locals: {startup: startup}
 
 = render partial: 'layouts/press'
 
