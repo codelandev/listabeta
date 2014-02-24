@@ -1,26 +1,39 @@
-.menu-wrapper.navbar-fixed-top
+nav.navbar.navbar-default.navbar-fixed-top.menu-wrapper[role="navigation"]
   .container
-    = link_to root_path do
-      .logo
-        = image_tag 'logo-azul.png', title: 'LISTABETA'
-    = link_to startups_path do
-      .menu-item.menu-fade
-        span STARTUPS
-    - if startup_signed_in?
-      = link_to dashboard_path do
-        .menu-item.menu-fade
-          span DASHBOARD
-      .pull-right
-        = link_to destroy_startup_session_path, method: :delete do
-          .menu-item.last-menu-item.menu-fade
-            span SAIR
-    - else
-      .menu-button
-        = link_to "ENVIE SUA STARTUP", new_startup_registration_path, class: 'btn default-btn fade'
-      .pull-right
-        = link_to new_startup_session_path do
-          .menu-item.last-menu-item.menu-fade
-            span ENTRAR
+    .navbar-header
+      button.navbar-toggle[data-target="#navbar-collapse" data-toggle="collapse" type="button"]
+        span.sr-only Navegar
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to root_path do
+        .logo
+          = image_tag 'logo-azul.png', title: 'LISTABETA'
+   
+    #navbar-collapse.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          = link_to startups_path do
+            .menu-item.menu-fade
+              span STARTUPS
+        li      
+          - if startup_signed_in?
+            = link_to dashboard_path do
+              .menu-item.menu-fade
+                span DASHBOARD
+          - else
+            .menu-button
+              = link_to "ENVIE SUA STARTUP", new_startup_registration_path, class: 'btn default-btn fade'
+      ul.nav.navbar-nav.navbar-right
+        li
+          - if startup_signed_in?
+            = link_to destroy_startup_session_path, method: :delete do
+              .menu-item.last-menu-item.menu-fade
+                span SAIR
+          - else
+            = link_to new_startup_session_path do
+              .menu-item.last-menu-item.menu-fade
+                span ENTRAR
 
 .pack-stripe
   .container

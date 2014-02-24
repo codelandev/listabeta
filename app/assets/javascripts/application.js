@@ -17,6 +17,7 @@
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/dropdown
+//= require twitter/bootstrap/collapse
 //= require ./listabeta/listabeta
 //= require_tree ./lib
 //= require_tree ./listabeta
