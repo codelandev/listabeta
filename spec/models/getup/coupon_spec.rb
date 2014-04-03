@@ -9,7 +9,7 @@ describe Getup::Coupon do
              Authorization: "Bearer #{ENV['GETUP_SECRET_KEY_CODED']}"
            }).
       to_return(status: status,
-                body: Rails.root.join('spec', 'fixtures', filename),
+                body: filename ? Rails.root.join('spec', 'fixtures', filename) : nil,
                 headers: {
                   content_type: 'application/json'
                 })
@@ -108,7 +108,7 @@ describe Getup::Coupon do
 
   describe '.destroy' do
     before do
-      stub_getup_request('getup_success_delete.json',
+      stub_getup_request(nil,
                          :delete,
                          "/getup/partner/coupon/my-awesome-coupon/",
                          {},
