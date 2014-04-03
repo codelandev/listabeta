@@ -1,0 +1,18 @@
+{
+   "status": "ok",
+   "message": "Partner coupon",
+   "data": [
+      {
+         "coupons": [
+            {
+               "profile": "1gear",
+               "code": "my-awesome-code",
+               "created": "2014-02-03T18:21:03",
+               "expires": "2014-02-05T18:21:03",
+               "partner": "codeland"
+            }
+         ]
+      }
+   ],
+   "success": true
+}
