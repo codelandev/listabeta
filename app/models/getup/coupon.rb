@@ -6,7 +6,7 @@ module Getup
     headers 'Authorization' => "Bearer #{ENV['GETUP_SECRET_KEY_CODED']}"
 
     class << self
-      def create_new_coupon
+      def new_coupon
         if response = create
           response['data'][0]['code'] if response['data'] && response['data'][0]
         end

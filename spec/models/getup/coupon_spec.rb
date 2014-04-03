@@ -143,7 +143,7 @@ describe Getup::Coupon do
     end
   end
 
-  describe '.create_new_coupon' do
+  describe '.new_coupon' do
     context 'success request' do
       before do
         stub_getup_request('getup_success_create.json',
@@ -154,7 +154,7 @@ describe Getup::Coupon do
                            201)
       end
 
-      subject { described_class.create_new_coupon }
+      subject { described_class.new_coupon }
 
       it { expect(subject).to eq('my-awesome-coupon') }
     end
@@ -169,7 +169,7 @@ describe Getup::Coupon do
                            404)
       end
 
-      subject { described_class.create_new_coupon }
+      subject { described_class.new_coupon }
 
       it { expect(subject).to be_nil }
     end

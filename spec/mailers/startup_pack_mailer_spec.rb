@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe StartupPackMailer do
   describe "offers_email" do
-    before { Getup::Coupon.stub(:create_new_coupon).and_return('my-awesome-coupon') }
+    before { Getup::Coupon.stub(:new_coupon).and_return('my-awesome-coupon') }
 
     let(:mail) { StartupPackMailer.offers_email("test@test.com") }
 
