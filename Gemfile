@@ -75,6 +75,9 @@ gem 'meta-tags', :require => 'meta_tags'
 # For pagination
 gem 'kaminari'
 
+# Requests to Getup Cloud
+gem 'httparty', '~> 0.13.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -95,6 +98,7 @@ group :test do
   gem 'database_cleaner', '~> 1.2.0'
   gem 'shoulda-matchers', '~> 2.5.0'
   gem 'simplecov', '~> 0.8.2', require: false
+  gem 'webmock', '~> 1.17.4'
 end
 
 # Use ActiveModel has_secure_password

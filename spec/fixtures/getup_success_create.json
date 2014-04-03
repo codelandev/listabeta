@@ -1,0 +1,11 @@
+{
+   "status": "ok",
+   "message": "Partner coupon",
+   "data": [
+      {
+         "code": "my-awesome-coupon",
+         "expires": "2014-02-05T18:21:03.166"
+      }
+   ],
+   "success": true
+}
