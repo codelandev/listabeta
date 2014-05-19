@@ -29,7 +29,7 @@ class Startup < ActiveRecord::Base
   scope :order_by_highlighted_at, -> { order ("highlighted_at DESC")}
 
   def highlight!
-    self.update_column(:highlighted, true)
+    self.highlighted = true
     self.highlighted_at = DateTime.now
     save
   end
