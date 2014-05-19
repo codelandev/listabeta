@@ -17,3 +17,4 @@ public/uploads
 /tmp/*
 .ruby-version
 coverage/*
+/config/database.yml
