@@ -118,6 +118,14 @@ describe Startup do
         @startup_highlight.highlight!
         expect(@startup_highlight.highlighted).to be_true
       end
+
+      it "set highlighted_at to DateTime.now when unhighlighted" do
+        expected = DateTime.now
+        DateTime.stub(:now).and_return(expected)
+        expect {
+          @startup_unhighlight.highlight!
+        }.to change(@startup_unhighlight, :highlighted_at).from(nil).to(expected)
+      end
     end
 
     context "#unhighlight!" do

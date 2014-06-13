@@ -26,9 +26,12 @@ class Startup < ActiveRecord::Base
   scope :approvateds, -> { where(status: Status::APPROVED) }
   scope :unapprovateds, -> { where(status: Status::UNAPPROVED) }
   scope :order_by_approves, -> { order("approved_at DESC") }
+  scope :order_by_highlighted_at, -> { order ("highlighted_at DESC")}
 
   def highlight!
-    update_column(:highlighted, true) and save
+    self.highlighted = true
+    self.highlighted_at = DateTime.now
+    save
   end
 
   def unhighlight!

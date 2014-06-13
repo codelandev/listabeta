@@ -22,6 +22,8 @@ describe StartupPackController do
     end
 
     describe "POST dispatch_email" do
+      before { Getup::Coupon.stub(:new_coupon).and_return('my-awesome-coupon') }
+
       it "creates a new subscription" do
         post :dispatch_email, subscriber: { "email" => "test@test.com", "newsletter_subscription" => "on" }
         subscriber = StartupPackSubscriber.last

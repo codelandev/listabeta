@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Ruby Version
-ruby '2.0.0'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.4'
 gem 'rails-i18n', '~> 4.0.0'
 
 # Server
@@ -14,16 +14,16 @@ gem 'passenger', '~> 4.0.37'
 gem 'pg', '~> 0.17.0'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.3.1'
+gem 'uglifier', '~> 2.5.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
 # Use slim templates
-gem 'slim-rails', '~> 2.0.3'
+gem 'slim-rails', '~> 2.1.3'
 
 # Twitter bootstrap
 gem 'bootstrap-sass-rails', '~> 3.0.2.1'
@@ -41,8 +41,8 @@ gem 'devise-i18n'
 gem 'enumerate_it'
 
 # For avatar uploading
-gem 'carrierwave', '~> 0.9.0'
-gem 'fog', '~> 1.18.0'
+gem 'carrierwave', '~> 0.10.0'
+gem 'fog', '~> 1.21.0'
 gem 'mini_magick', '~> 3.7.0'
 
 # Google Analytics
@@ -75,6 +75,9 @@ gem 'meta-tags', :require => 'meta_tags'
 # For pagination
 gem 'kaminari'
 
+# Requests to Getup Cloud
+gem 'httparty', '~> 0.13.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -93,8 +96,9 @@ group :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'machinist', '~> 2.0'
   gem 'database_cleaner', '~> 1.2.0'
-  gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'shoulda-matchers', '~> 2.5.0'
   gem 'simplecov', '~> 0.8.2', require: false
+  gem 'webmock', '~> 1.17.4'
 end
 
 # Use ActiveModel has_secure_password
