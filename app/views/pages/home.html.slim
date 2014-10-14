@@ -1,4 +1,7 @@
 - set_meta_tags :site => "LISTABETA", :keywords => 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups, LISTABETA', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "LISTABETA", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
+.promo-message
+  span Aprenda na prática a desenvolver seu potencial, formando sua equipe e criando sua startup. #{link_to "Saiba mais", "http://www.colisoes.com.br", target: "_blank"}.
+
 .banner
   .container
     .text-center
@@ -36,7 +39,7 @@
         - @all_markets.each do |f|
           span.label.label-default.market-tag
             = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-      
+
       = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
 
 
