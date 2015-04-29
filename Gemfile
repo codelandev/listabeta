@@ -94,12 +94,13 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.14.2'
   gem 'machinist', '~> 2.0'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'shoulda-matchers', '~> 2.5.0'
   gem 'simplecov', '~> 0.8.2', require: false
   gem 'webmock', '~> 1.17.4'
+  gem 'test-unit' # needed because of ruby 2.2.1
 end
 
 # Use ActiveModel has_secure_password
