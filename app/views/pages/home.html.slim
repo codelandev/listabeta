@@ -1,0 +1,55 @@
+- set_meta_tags :site => "LISTABETA", :keywords => 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups, LISTABETA', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "LISTABETA", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
+.promo-message
+  span Aprenda na prática a desenvolver seu potencial, formando sua equipe e criando sua startup. #{link_to "Saiba mais", "http://www.colisoes.com.br", target: "_blank"}.
+
+.banner
+  .container.text-center
+    h1 Se você não pode ser encontrado, você não existe
+    h3 Tenha acesso exclusivo as mais novas startups brasileiras
+    .col-md-8.col-sm-12.col-md-offset-3
+      .col-md-3.col-sm-4.icon-header
+        = image_tag 'icon-envie.png', title: 'Envie sua Startup'
+        br/
+        | ENVIE SUA STARTUP
+      .col-md-3.col-sm-4.icon-header
+        = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
+        br/
+        | EARLY ADOPTERS RECEBEM POR EMAIL
+      .col-md-3.col-sm-4.icon-header
+        icon-header
+        = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
+        br/
+        | GANHE USUÁRIOS E FEEDBACK
+
+= render partial: 'layouts/newsletter'
+
+.container
+  .row-fluid
+    .text-center
+      p.subtitle Novas Startups
+    .col-md-10.col-sm-12.col-md-offset-1
+      - @unhighlighteds.each do |startup|
+        .col-md-4.col-sm-4
+          = render partial: 'startups/startup_box', locals: {startup: startup}
+      .text-center
+        .clearfix
+        = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
+
+      .text-center
+        p.subtitle Mercados em Destaque
+        .tag-cloud.text-center
+          - @all_markets.each do |f|
+            span.label.label-default.market-tag
+              = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
+
+        = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
+      br
+      br
+      br
+    .text-center
+      p.subtitle Startups em Destaque
+    .col-md-8.col-sm-12.col-md-offset-2
+      - @highlighteds.each do |startup|
+        = render partial: 'startups/startup_box_big', locals: {startup: startup}
+
+= render partial: 'layouts/press'

@@ -1,0 +1,17 @@
+.container
+  .well.col-md-6.col-md-offset-3
+    h1.text-center Alterar sua senha
+    br
+    = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+      .register
+        = f.error_notification
+        .form-group
+          = f.input :reset_password_token, :as => :hidden
+          = f.full_error :reset_password_token
+          = f.input :password, :label => "Nova senha", :required => true, :autofocus => true
+          = f.input :password_confirmation, :label => "Confirmar nova senha", :required => true
+      .text-center
+        = f.button :submit, "Alterar minha senha", class: "btn default-btn fade"
+    br
+    .text-center
+      = render "startups/shared/links"

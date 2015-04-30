@@ -1,0 +1,81 @@
+.menu-wrapper{
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #b7d5ea;
+  padding-bottom: 60px;
+  .logo{
+    float: left;
+    padding: 15px 32px 15px 0px;
+    border-right: 1px solid #b7d5ea;
+    @media (max-width: 767px) {
+      border: 0;
+      margin-left: 15px;
+    }
+  }
+  .menu-item{
+    float: left;
+    border-right: 1px solid #b7d5ea;
+  }
+  .menu-item, .last-menu-item{
+    padding: 25px 36px;
+  }
+  .last-menu-item{
+    border-left: 1px solid #b7d5ea;
+  }
+  .menu-button{
+    padding: 12px 20px;
+    float: left;
+    border-right: 1px solid #b7d5ea;
+    a {
+      padding: 12px 24px;
+    }
+  }
+  .navbar-nav > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .nav > li > a {
+    padding: 0;
+  }
+  .navbar-collapse.in, .collapsing {
+    background-color: #fff;
+    border-top: 1px solid #b7d5ea;
+    .nav, .navbar-nav {
+      li {
+        .menu-item, .menu-button {
+          float: none;
+          border: 0;
+        }
+      }
+    }
+  }
+  .navbar-collapse {
+    a .menu-item {
+      //padding: 0;
+      span {
+        color: #4aa3df;
+      }
+    }
+    li:hover, a:hover {
+      span {
+        color: #fff;
+      }
+    }
+  }
+  .navbar-toggle, .navbar-toggle:focus{
+    margin-top: 17px;
+    border: 1px solid #b7d5ea;
+    background-color: #fff;
+    .icon-bar {
+      background-color: #b7d5ea;
+    }
+  }
+  .navbar-toggle:hover {
+    background-color: #4aa3df;
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+}

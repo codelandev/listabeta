@@ -1,0 +1,20 @@
+.container
+  .well.col-md-6.col-md-offset-3
+    h1.text-center Esqueceu sua senha?
+    br
+    = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      .register
+        = f.error_notification
+        .form-group
+          = f.input :email, :required => true, :autofocus => true, class: 'form-control'
+      .text-center
+        = f.button :submit, "Envie-me instruções de troca de senha", class: "btn default-btn fade"
+    br
+    .text-center    
+      = render "startups/shared/links"
+br
+br
+br
+br
+br
+br

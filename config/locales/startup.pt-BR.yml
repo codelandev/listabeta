@@ -1,0 +1,43 @@
+pt-BR:
+  activerecord:
+    models:
+      startup:
+        one: Startup
+        other: Startups
+
+    attributes:
+      startup:
+        name: Nome da Startup
+        city: Cidade
+        email: Email do responsável
+        pitch: Pitch
+        state: Estado
+        status: Status da aprovação
+        phase: Fase do negócio
+        website: URL do site
+        twitter: Twitter URL
+        markets: Tipos de mercado (separados por vírgula)
+        password: Senha
+        approved: Aprovado?
+        screenshot: Website screenshot
+        highlighted: Em destaque?
+        description: Descrição
+        market_list: Tipos de mercado (separados por vírgula)
+        current_password: Senha atual
+        password_confirmation: Confirmar senha
+
+  enumerations:
+    phase:
+      in_development: Em desenvolvimento
+      private_beta: Beta privado
+      public_beta: Beta público
+      online: No ar
+    status:
+      pendent: Pendente
+      approved: Aprovada
+      unapproved: Desaprovada
+
+  devise:
+    registrations:
+      startup:
+        sign_up: Sua Startup foi cadastrada com sucesso e será avaliada!

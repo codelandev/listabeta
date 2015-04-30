@@ -1,0 +1,42 @@
+.promo-message{
+  width: 100%;
+  text-align: center;
+  background-color: #6c6c6c;
+  color: white;
+  border-bottom: -4px;
+  padding: 6px 0px;
+  font-weight: 100;
+  a{ color: #ccc; }
+}
+
+.banner{
+  background-color: #4aa3df;
+  padding: 45px 0px 50px 0px;
+  color: white;
+  h1, h2, h3, h4, h5, h6 { color: white; margin-top: 0px; }
+  h1{ font-weight: 600; }
+  .icons{
+    margin-top: 36px;
+  }
+}
+
+.label-default{
+  background-color: #4aa3df;
+  text-transform: uppercase;
+  font-size: 10px !important;
+  padding: 6px 10px;
+  font-weight: 100;
+  margin-top: 8px;
+  display: inline-block;
+  a{
+    color: white;
+    font-size:10px;
+  }
+}
+
+.tag-cloud{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+

@@ -1,0 +1,64 @@
+- set_meta_tags :site => "LISTABETA | Cadastre-se", :keywords => 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "LISTABETA | Cadastre-se", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
+
+.container
+  .well.col-md-8.col-md-offset-2
+    h1.text-center Envie sua Startup
+    br/
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 A startup não pode estar disponível para o público ou deve estar em beta
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 A startup não pode ter sido publicada anteriormente na LISTABETA
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 A startup deve ter site próprio
+    .bullets
+      icon.glyphicon.glyphicon-ok
+      h4 Os visitantes devem ser capazes de se cadastrar na lista de email para serem notificados sobre o lançamento ou novidades
+    br/
+    br/
+
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :post }) do |f|
+      .register
+        .form-group
+          = f.input :email, :required => true, class: 'form-control'
+        .form-group
+          = f.input :name, :required => true, class: 'form-control'
+        .form-group
+          = f.input :website, :required => true, class: 'form-control', hint: 'Ex: http://www.seusite.com.br'
+        .form-group
+          = f.input :screenshot, :required => true, class: 'form-control', hint: 'Escolha uma screenshot de uma tela da sua startup (910px x 500px)'
+        .form-group
+          = f.input :pitch, :required => true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
+        .form-group
+          = f.input :description, :required => true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
+        .form-group
+          = f.label :phase
+          br/
+          = f.select :phase, Phase.to_a, :required => true, class: 'form-control'
+        .form-group
+          = f.input :state, :required => true, class: 'form-control'
+        .form-group
+          = f.input :city, :required => true, class: 'form-control'
+        .form-group
+          = f.input :market_list, :required => true, class: 'form-control', hint: 'Ex: Saúde, Educação, Mobile'
+        hr
+        .form-group
+          = f.input :password, :required => true, class: 'form-control'
+        .form-group
+          = f.input :password_confirmation, :required => true, class: 'form-control'
+      .text-center
+        = f.button :submit, "Enviar minha Startup", class: 'btn default-btn fade'
+
+javascript:
+  $(function() {
+    new dgCidadesEstados({
+      estadoVal: document.getElementById('startup_state').val,
+      cidadeVal: document.getElementById('startup_city').val,
+      estado: document.getElementById('startup_state'),
+      cidade: document.getElementById('startup_city'),
+      change: true
+    });
+  });
+

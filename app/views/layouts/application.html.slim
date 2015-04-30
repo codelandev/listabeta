@@ -1,0 +1,27 @@
+doctype html
+
+html
+  head
+    script src="https://www.google.com/jsapi" type="text/javascript"
+    meta[charset="utf-8"]
+    /[if lt IE 9]
+      script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
+      meta[content="text/html; charset=utf-8" http-equiv="Content-Type"]
+    link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application", "chartkick"
+    = csrf_meta_tags
+    = favicon_link_tag "favicon.ico"
+    = analytics_init if Rails.env.production?
+
+    / Dynamic Meta Tags
+    = display_meta_tags
+  body
+    = render partial: 'layouts/flash'
+    - if params[:controller].eql?('startup_pack')
+      = render partial: 'layouts/pack_header'
+    - else
+      = render partial: 'layouts/header'
+    = yield
+  footer
+    = render partial: 'layouts/footer'

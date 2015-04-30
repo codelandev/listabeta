@@ -1,0 +1,9 @@
+.startup-box-big
+  .image-area
+    = link_to startup_path(startup) do
+      = image_tag startup.screenshot_url, class: 'img-responsive'
+  .description
+    = link_to startup.name, startup_path(startup), class: 'title'
+    p 
+      i = truncate(startup.pitch, length: 160)
+    p = truncate(startup.description, length: 400)

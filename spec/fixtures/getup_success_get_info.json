@@ -1,0 +1,27 @@
+{
+   "status": "ok",
+   "message": "Partner info",
+   "data": [
+      {
+         "partner": {
+            "profiles": [
+               {
+                  "free_tier": 0,
+                  "name": "standard",
+                  "max_gears": 0
+               },
+               {
+                  "free_tier": 750,
+                  "name": "1gear",
+                  "max_gears": 1
+               }
+            ],
+            "code": "codeland",
+            "name": "CODELAND",
+            "comission": "4.0",
+            "email": "hello@bla.foo.com"
+         }
+      }
+   ],
+   "success": true
+}

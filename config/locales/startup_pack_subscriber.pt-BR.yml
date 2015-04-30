@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      startup_pack_subscriber:
+        one: Inscricão Startup Pack
+        other: Inscrições Startup Pack
+    attributes:
+      startup_pack_subscriber:
+        email: Email
