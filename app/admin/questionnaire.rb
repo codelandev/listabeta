@@ -7,6 +7,6 @@ ActiveAdmin.register Questionnaire do
       questionnaire.startup.name
     end
     column :created_at
-    default_actions
+    actions
   end
 end

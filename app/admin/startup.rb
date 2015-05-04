@@ -83,7 +83,7 @@ ActiveAdmin.register Startup do
     column :name
     column :website
     column :email
-    default_actions
+    actions
   end
 
   show do
